@@ -11,6 +11,7 @@
 #import <ESTBeacon.h>
 
 #import "EEPowerLevelViewController.h"
+#import "EEProximityView.h"
 
 @interface EEDetailViewController () <ESTBeaconDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate>
 {
@@ -32,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *frequencyButton;
 @property (weak, nonatomic) IBOutlet UIButton *proximityUUIDButton;
 
+@property (weak, nonatomic) IBOutlet EEProximityView *proximityView;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *userControls;
 
@@ -180,6 +182,8 @@
 	
 	[self.proximityUUIDButton setTitle:self.beacon.ibeacon.proximityUUID.UUIDString
 							  forState:UIControlStateNormal];
+	
+	self.proximityView.proximity = self.beacon.ibeacon.proximity;
 	
 	[self.activityIndicator stopAnimating];
 	[self.userControls setValue:@YES forKey:@"enabled"];

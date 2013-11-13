@@ -15,6 +15,7 @@
                 <outlet property="minorNumberButton" destination="OAA-6m-aaf" id="MrO-Rw-EFD"/>
                 <outlet property="powerLevelButton" destination="DuV-sZ-4ia" id="eQd-wu-3g7"/>
                 <outlet property="proximityUUIDButton" destination="qbg-it-lG0" id="j6j-yv-Fhs"/>
+                <outlet property="proximityView" destination="xYh-Ad-mPa" id="Dcn-SJ-FX4"/>
                 <outlet property="rssiLabel" destination="MX5-qW-Mxu" id="2Fc-5F-vjA"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outletCollection property="userControls" destination="a6q-LE-N87" id="RDw-r8-aQe"/>
@@ -180,6 +181,11 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xYh-Ad-mPa" customClass="EEProximityView">
+                    <rect key="frame" x="20" y="281" width="280" height="165"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
