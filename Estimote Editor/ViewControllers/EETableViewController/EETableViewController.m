@@ -9,6 +9,7 @@
 #import "EETableViewController.h"
 
 #import <ESTBeaconManager.h>
+#import <ESTBeacon.h>
 
 #import "EEDetailViewController.h"
 
@@ -56,7 +57,11 @@
             inRegion:(ESTBeaconRegion *)region
 {
 	if ([ESTIMOTE_REGION_ALL isEqualToString:[region identifier]]) {
-		self.beacons = beacons;
+		self.beacons = [beacons sortedArrayUsingComparator:^NSComparisonResult(ESTBeacon *obj1, ESTBeacon *obj2) {
+			return [[NSString stringWithFormat:@"%@ - %@ - %@", obj1.ibeacon.proximityUUID.UUIDString, obj1.ibeacon.major, obj1.ibeacon.minor]
+					compare:
+					[NSString stringWithFormat:@"%@ - %@ - %@", obj2.ibeacon.proximityUUID.UUIDString, obj2.ibeacon.major, obj2.ibeacon.minor]];
+		}];
 		[self.tableView reloadData];
 	}
 }

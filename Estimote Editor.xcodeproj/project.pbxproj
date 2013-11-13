@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */; };
 		E1E923111833A7FF008604A7 /* libEstimoteSDK7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E922C71833A7FF008604A7 /* libEstimoteSDK7.a */; };
 		E1F1247D18338F2700BE137D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247C18338F2700BE137D /* Foundation.framework */; };
 		E1F1247F18338F2700BE137D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247E18338F2700BE137D /* CoreGraphics.framework */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E10877AB1833D08100ECD3B3 /* EEPowerLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPowerLevelViewController.h; sourceTree = "<group>"; };
+		E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPowerLevelViewController.m; sourceTree = "<group>"; };
 		E1E922C71833A7FF008604A7 /* libEstimoteSDK7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK7.a; path = "Vendors/Estimote/iOS-SDK/EstimoteSDK/libEstimoteSDK7.a"; sourceTree = "<group>"; };
 		E1F1247918338F2700BE137D /* Estimote Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estimote Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F1247C18338F2700BE137D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E10877AA1833D05900ECD3B3 /* EEPowerLevelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E10877AB1833D08100ECD3B3 /* EEPowerLevelViewController.h */,
+				E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */,
+			);
+			path = EEPowerLevelViewController;
+			sourceTree = "<group>";
+		};
 		E1F1247018338F2700BE137D = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +131,7 @@
 		E1F124AB18338F5900BE137D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E10877AA1833D05900ECD3B3 /* EEPowerLevelViewController */,
 				E1F124BC183392B200BE137D /* EEDetailViewController */,
 				E1F124AC18338F5900BE137D /* EETableViewController */,
 			);
@@ -210,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */,
 				E1F1248D18338F2700BE137D /* EEAppDelegate.m in Sources */,
 				E1F124AF18338F6F00BE137D /* EETableViewController.m in Sources */,
 				E1F1248918338F2700BE137D /* main.m in Sources */,
