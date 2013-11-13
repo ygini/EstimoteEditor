@@ -33,6 +33,8 @@
 		
 		ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initRegionWithIdentifier:ESTIMOTE_REGION_ALL];
 		[self.beaconManager startRangingBeaconsInRegion:region];
+		
+		self.title = @"Estimote Editor";
 	}
     return self;
 }

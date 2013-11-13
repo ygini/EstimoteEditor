@@ -10,8 +10,12 @@
                 <outlet property="majorLabel" destination="ryy-dT-Dhk" id="fLd-jt-o6E"/>
                 <outlet property="minorLabel" destination="L95-oG-ebU" id="rwO-lO-Qxi"/>
                 <outlet property="powerLabel" destination="uhL-7Q-fmF" id="oTv-dv-dJe"/>
+                <outlet property="proximityUUIDLabel" destination="RS1-x3-lCD" id="Err-ae-BJ7"/>
                 <outlet property="rssiLabel" destination="MX5-qW-Mxu" id="2Fc-5F-vjA"/>
                 <outlet property="view" destination="1" id="3"/>
+                <outletCollection property="userControls" destination="a6q-LE-N87" id="RDw-r8-aQe"/>
+                <outletCollection property="userControls" destination="OAA-6m-aaf" id="WwV-DY-Hzv"/>
+                <outletCollection property="userControls" destination="qbg-it-lG0" id="LIk-cr-OOp"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -102,6 +106,23 @@
                     </state>
                     <connections>
                         <action selector="editMinorNumberAction:" destination="-1" eventType="touchUpInside" id="oSw-4o-s9l"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RS1-x3-lCD">
+                    <rect key="frame" x="20" y="463" width="280" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbg-it-lG0">
+                    <rect key="frame" x="20" y="425" width="280" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Share Proximity UUID">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareProximityUUIDAction:" destination="-1" eventType="touchUpInside" id="lM5-Qq-0Rv"/>
                     </connections>
                 </button>
             </subviews>

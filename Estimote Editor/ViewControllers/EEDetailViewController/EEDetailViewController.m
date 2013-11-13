@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *majorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rssiLabel;
+@property (weak, nonatomic) IBOutlet UILabel *proximityUUIDLabel;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *userControls;
 
 - (void)updateUI;
 
@@ -60,6 +63,8 @@
 {
 	self.beacon.delegate = self;
 	[self.beacon connectToBeacon];
+	
+	[self.userControls setValue:@NO forKey:@"enabled"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -70,12 +75,15 @@
 
 - (void)updateUI
 {
+	self.title = self.beacon.peripheral.name;
 	self.macAddressLabel.text = self.beacon.macAddress;
 	self.powerLabel.text = [self.beacon.power stringValue];
 	self.majorLabel.text = [self.beacon.major stringValue];
 	self.minorLabel.text = [self.beacon.minor stringValue];
 	self.rssiLabel.text = [self.beacon.rssi stringValue];
+	self.proximityUUIDLabel.text = self.beacon.ibeacon.proximityUUID.UUIDString;
 	[self.activityIndicator stopAnimating];
+	[self.userControls setValue:@YES forKey:@"enabled"];
 }
 
 #pragma mark - Actions
@@ -110,6 +118,17 @@
 	_selectorForEditingAlert = @selector(editMinorNumberWithString:);
 	
 	[alert show];
+}
+
+- (IBAction)shareProximityUUIDAction:(id)sender {
+	UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.beacon.ibeacon.proximityUUID.UUIDString]
+																						 applicationActivities:nil];
+	
+	[self presentViewController:activityViewController
+					   animated:YES
+					 completion:^{
+						 
+					 }];
 }
 
 #pragma mark - Internal
