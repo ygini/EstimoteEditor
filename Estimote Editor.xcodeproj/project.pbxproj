@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E1E923111833A7FF008604A7 /* libEstimoteSDK7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E922C71833A7FF008604A7 /* libEstimoteSDK7.a */; };
+		E1F1247D18338F2700BE137D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247C18338F2700BE137D /* Foundation.framework */; };
+		E1F1247F18338F2700BE137D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247E18338F2700BE137D /* CoreGraphics.framework */; };
+		E1F1248118338F2700BE137D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1248018338F2700BE137D /* UIKit.framework */; };
+		E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1F1248518338F2700BE137D /* InfoPlist.strings */; };
+		E1F1248918338F2700BE137D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F1248818338F2700BE137D /* main.m */; };
+		E1F1248D18338F2700BE137D /* EEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F1248C18338F2700BE137D /* EEAppDelegate.m */; };
+		E1F1248F18338F2700BE137D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1F1248E18338F2700BE137D /* Images.xcassets */; };
+		E1F124AF18338F6F00BE137D /* EETableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F124AE18338F6F00BE137D /* EETableViewController.m */; };
+		E1F124B91833913300BE137D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F124B81833913300BE137D /* CoreLocation.framework */; };
+		E1F124BB1833914100BE137D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F124BA1833914100BE137D /* SystemConfiguration.framework */; };
+		E1F124C0183392C600BE137D /* EEDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F124BE183392C600BE137D /* EEDetailViewController.m */; };
+		E1F124C1183392C600BE137D /* EEDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F124BF183392C600BE137D /* EEDetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E1E922C71833A7FF008604A7 /* libEstimoteSDK7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK7.a; path = "Vendors/Estimote/iOS-SDK/EstimoteSDK/libEstimoteSDK7.a"; sourceTree = "<group>"; };
+		E1F1247918338F2700BE137D /* Estimote Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estimote Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1F1247C18338F2700BE137D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E1F1247E18338F2700BE137D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E1F1248018338F2700BE137D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E1F1248418338F2700BE137D /* Estimote Editor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Estimote Editor-Info.plist"; path = "Supporting Files/Estimote Editor-Info.plist"; sourceTree = "<group>"; };
+		E1F1248618338F2700BE137D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E1F1248818338F2700BE137D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		E1F1248A18338F2700BE137D /* Estimote Editor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Estimote Editor-Prefix.pch"; path = "Supporting Files/Estimote Editor-Prefix.pch"; sourceTree = "<group>"; };
+		E1F1248B18338F2700BE137D /* EEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EEAppDelegate.h; sourceTree = "<group>"; };
+		E1F1248C18338F2700BE137D /* EEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EEAppDelegate.m; sourceTree = "<group>"; };
+		E1F1248E18338F2700BE137D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E1F1249518338F2700BE137D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E1F124AD18338F6F00BE137D /* EETableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETableViewController.h; sourceTree = "<group>"; };
+		E1F124AE18338F6F00BE137D /* EETableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETableViewController.m; sourceTree = "<group>"; };
+		E1F124B81833913300BE137D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E1F124BA1833914100BE137D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E1F124BD183392C600BE137D /* EEDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEDetailViewController.h; sourceTree = "<group>"; };
+		E1F124BE183392C600BE137D /* EEDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEDetailViewController.m; sourceTree = "<group>"; };
+		E1F124BF183392C600BE137D /* EEDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EEDetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1F1247618338F2700BE137D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1F124BB1833914100BE137D /* SystemConfiguration.framework in Frameworks */,
+				E1F124B91833913300BE137D /* CoreLocation.framework in Frameworks */,
+				E1F1247F18338F2700BE137D /* CoreGraphics.framework in Frameworks */,
+				E1E923111833A7FF008604A7 /* libEstimoteSDK7.a in Frameworks */,
+				E1F1248118338F2700BE137D /* UIKit.framework in Frameworks */,
+				E1F1247D18338F2700BE137D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1F1247018338F2700BE137D = {
+			isa = PBXGroup;
+			children = (
+				E1F1248218338F2700BE137D /* Estimote Editor */,
+				E1F1247B18338F2700BE137D /* Frameworks */,
+				E1F1247A18338F2700BE137D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1F1247A18338F2700BE137D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1F1247918338F2700BE137D /* Estimote Editor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1F1247B18338F2700BE137D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1E922C71833A7FF008604A7 /* libEstimoteSDK7.a */,
+				E1F124BA1833914100BE137D /* SystemConfiguration.framework */,
+				E1F124B81833913300BE137D /* CoreLocation.framework */,
+				E1F1247C18338F2700BE137D /* Foundation.framework */,
+				E1F1247E18338F2700BE137D /* CoreGraphics.framework */,
+				E1F1248018338F2700BE137D /* UIKit.framework */,
+				E1F1249518338F2700BE137D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1F1248218338F2700BE137D /* Estimote Editor */ = {
+			isa = PBXGroup;
+			children = (
+				E1F124AB18338F5900BE137D /* ViewControllers */,
+				E1F1248B18338F2700BE137D /* EEAppDelegate.h */,
+				E1F1248C18338F2700BE137D /* EEAppDelegate.m */,
+				E1F1248E18338F2700BE137D /* Images.xcassets */,
+				E1F1248318338F2700BE137D /* Supporting Files */,
+			);
+			path = "Estimote Editor";
+			sourceTree = "<group>";
+		};
+		E1F1248318338F2700BE137D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1F1248418338F2700BE137D /* Estimote Editor-Info.plist */,
+				E1F1248518338F2700BE137D /* InfoPlist.strings */,
+				E1F1248818338F2700BE137D /* main.m */,
+				E1F1248A18338F2700BE137D /* Estimote Editor-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1F124AB18338F5900BE137D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1F124BC183392B200BE137D /* EEDetailViewController */,
+				E1F124AC18338F5900BE137D /* EETableViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E1F124AC18338F5900BE137D /* EETableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1F124AD18338F6F00BE137D /* EETableViewController.h */,
+				E1F124AE18338F6F00BE137D /* EETableViewController.m */,
+			);
+			path = EETableViewController;
+			sourceTree = "<group>";
+		};
+		E1F124BC183392B200BE137D /* EEDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1F124BD183392C600BE137D /* EEDetailViewController.h */,
+				E1F124BE183392C600BE137D /* EEDetailViewController.m */,
+				E1F124BF183392C600BE137D /* EEDetailViewController.xib */,
+			);
+			path = EEDetailViewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1F1247818338F2700BE137D /* Estimote Editor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1F124A518338F2700BE137D /* Build configuration list for PBXNativeTarget "Estimote Editor" */;
+			buildPhases = (
+				E1F1247518338F2700BE137D /* Sources */,
+				E1F1247618338F2700BE137D /* Frameworks */,
+				E1F1247718338F2700BE137D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Estimote Editor";
+			productName = "Estimote Editor";
+			productReference = E1F1247918338F2700BE137D /* Estimote Editor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1F1247118338F2700BE137D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EE;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Yoann Gini";
+			};
+			buildConfigurationList = E1F1247418338F2700BE137D /* Build configuration list for PBXProject "Estimote Editor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1F1247018338F2700BE137D;
+			productRefGroup = E1F1247A18338F2700BE137D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1F1247818338F2700BE137D /* Estimote Editor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1F1247718338F2700BE137D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */,
+				E1F1248F18338F2700BE137D /* Images.xcassets in Resources */,
+				E1F124C1183392C600BE137D /* EEDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1F1247518338F2700BE137D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1F1248D18338F2700BE137D /* EEAppDelegate.m in Sources */,
+				E1F124AF18338F6F00BE137D /* EETableViewController.m in Sources */,
+				E1F1248918338F2700BE137D /* main.m in Sources */,
+				E1F124C0183392C600BE137D /* EEDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E1F1248518338F2700BE137D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1F1248618338F2700BE137D /* en */,
+			);
+			name = InfoPlist.strings;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E1F124A318338F2700BE137D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E1F124A418338F2700BE137D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1F124A618338F2700BE137D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Estimote Editor/Supporting Files/Estimote Editor-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
+				);
+				INFOPLIST_FILE = "Estimote Editor/Supporting Files/Estimote Editor-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E1F124A718338F2700BE137D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Estimote Editor/Supporting Files/Estimote Editor-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
+				);
+				INFOPLIST_FILE = "Estimote Editor/Supporting Files/Estimote Editor-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1F1247418338F2700BE137D /* Build configuration list for PBXProject "Estimote Editor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1F124A318338F2700BE137D /* Debug */,
+				E1F124A418338F2700BE137D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1F124A518338F2700BE137D /* Build configuration list for PBXNativeTarget "Estimote Editor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1F124A618338F2700BE137D /* Debug */,
+				E1F124A718338F2700BE137D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1F1247118338F2700BE137D /* Project object */;
+}
