@@ -13,5 +13,6 @@
 @interface EEDetailViewController : UIViewController
 
 @property (nonatomic, strong) ESTBeacon *beacon;
+- (IBAction)updateFirmware:(id)sender;
 
 @end

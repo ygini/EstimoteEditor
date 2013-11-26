@@ -183,7 +183,7 @@
 	[self.proximityUUIDButton setTitle:self.beacon.ibeacon.proximityUUID.UUIDString
 							  forState:UIControlStateNormal];
 	
-	self.proximityView.proximity = self.beacon.ibeacon.proximity;
+	[self.proximityView setProximity:self.beacon.ibeacon.proximity];
 	
 	[self.activityIndicator stopAnimating];
 	[self.userControls setValue:@YES forKey:@"enabled"];
@@ -192,35 +192,35 @@
 #pragma mark - Actions
 
 - (IBAction)editPowerLevelAction:(UIButton*)sender {
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Not yet functionnal"
-													 message:@"This function is ready to work but the API seems broken"
-													delegate:self
-										   cancelButtonTitle:@"OK"
-										   otherButtonTitles:nil];
+//	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Not yet functionnal"
+//													 message:@"This function is ready to work but the API seems broken"
+//													delegate:self
+//										   cancelButtonTitle:@"OK"
+//										   otherButtonTitles:nil];
+//	
+//	[alert show];
 	
-	[alert show];
+	EEPowerLevelViewController *powerLevelEditor = [[EEPowerLevelViewController alloc] initWithStyle:UITableViewStylePlain];
 	
-//	EEPowerLevelViewController *powerLevelEditor = [[EEPowerLevelViewController alloc] initWithStyle:UITableViewStylePlain];
-//	
-//	NSNumberFormatter *formatter = [NSNumberFormatter new];
-//	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-//	powerLevelEditor.powerLevel = [formatter numberFromString:self.powerLevelButton.titleLabel.text];
-//	
-//	powerLevelEditor.completionHandler = ^(EEPowerLevelViewController* editor) {
-//		[self.navigationController dismissViewControllerAnimated:YES
-//													  completion:^{
-//			
-//		}];
-//		
-//		[self.activityIndicator startAnimating];
-//		[self editPowerLevelWithNumber:editor.powerLevel];
-//	};
-//	
-//	[self.navigationController presentViewController:powerLevelEditor
-//											animated:YES
-//										  completion:^{
-//											  
-//										  }];
+	NSNumberFormatter *formatter = [NSNumberFormatter new];
+	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+	powerLevelEditor.powerLevel = [formatter numberFromString:self.powerLevelButton.titleLabel.text];
+	
+	powerLevelEditor.completionHandler = ^(EEPowerLevelViewController* editor) {
+		[self.navigationController dismissViewControllerAnimated:YES
+													  completion:^{
+			
+		}];
+		
+		[self.activityIndicator startAnimating];
+		[self editPowerLevelWithNumber:editor.powerLevel];
+	};
+	
+	[self.navigationController presentViewController:powerLevelEditor
+											animated:YES
+										  completion:^{
+											  
+										  }];
 }
 
 - (IBAction)editMajorNumberAction:(id)sender {
@@ -287,10 +287,10 @@
 
 #pragma mark - Internal
 
-- (void)editPowerLevelWithNumber:(NSNumber*)powerLevel
+- (void)editPowerLevelWithNumber:(ESTBeaconPower)powerLevel
 {
 	[self.activityIndicator startAnimating];
-	[self.beacon writeBeaconPower:[powerLevel shortValue] withCompletion:^(unsigned int value, NSError *error) {
+	[self.beacon writeBeaconPower:powerLevel withCompletion:^(unsigned int value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -311,9 +311,9 @@
 	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	
 	NSNumber *number = [formatter numberFromString:majorString];
-	
+    
 	[self.activityIndicator startAnimating];
-	[self.beacon writeBeaconMajor:[number shortValue] withCompletion:^(unsigned int value, NSError *error) {
+	[self.beacon writeBeaconMajor:[number intValue] withCompletion:^(unsigned int value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -336,7 +336,7 @@
 	NSNumber *number = [formatter numberFromString:minorString];
 	
 	[self.activityIndicator startAnimating];
-	[self.beacon writeBeaconMinor:[number shortValue] withCompletion:^(unsigned int value, NSError *error) {
+	[self.beacon writeBeaconMinor:[number intValue] withCompletion:^(unsigned int value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -427,4 +427,23 @@
 	}
 }
 
+- (IBAction)updateFirmware:(id)sender {
+    
+    [self.activityIndicator startAnimating];
+	[self.beacon updateBeaconFirmwareWithProgress:^(NSString *value, NSError *error) {
+        NSLog(@"Updating");
+    } andCompletion:^(NSError *error) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote update error"
+                                                         message:[error localizedDescription]
+                                                        delegate:self
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+        
+        [alert show];
+    }];
+     
+		
+     [self updateUI];
+    
+}
 @end

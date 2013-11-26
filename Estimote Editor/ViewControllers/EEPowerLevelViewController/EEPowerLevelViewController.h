@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ESTBeacon.h>
+
 @class EEPowerLevelViewController;
 
 typedef void(^EEPowerLevelCompletionHandler)(EEPowerLevelViewController* editor);
 
 @interface EEPowerLevelViewController : UITableViewController
 
-@property (nonatomic, strong) NSNumber *powerLevel;
+@property (nonatomic, assign) ESTBeaconPower powerLevel;
 @property (copy) EEPowerLevelCompletionHandler completionHandler;
 
 @end
