@@ -227,8 +227,8 @@
 	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Update Major Number"
 													 message:@"Missing specifications for min and max"
 													delegate:self
-										   cancelButtonTitle:@"OK"
-										   otherButtonTitles:@"Cancel", nil];
+										   cancelButtonTitle:@"Cancel"
+										   otherButtonTitles:@"Save", nil];
 	
 	alert.alertViewStyle = UIAlertViewStylePlainTextInput;
 	
