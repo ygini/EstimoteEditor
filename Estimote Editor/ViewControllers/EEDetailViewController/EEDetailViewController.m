@@ -13,6 +13,9 @@
 #import "EEPowerLevelViewController.h"
 #import "EEProximityView.h"
 
+static ESTBeaconPower powerChangedValue;
+
+
 @interface EEDetailViewController () <ESTBeaconDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate>
 {
 	BOOL _standardAlertRequireNavigationPop;
@@ -59,7 +62,9 @@
 	self.activityIndicator.hidesWhenStopped = YES;
 	UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
 	[[self navigationItem] setRightBarButtonItem:barButton];
-	
+	NSNumberFormatter *formatter = [NSNumberFormatter new];
+	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+	powerChangedValue = [self setCurrentPowerValue:[formatter numberFromString:self.powerLevelButton.titleLabel.text]];
 	[self.activityIndicator startAnimating];
 }
 
@@ -204,16 +209,15 @@
 	
 	NSNumberFormatter *formatter = [NSNumberFormatter new];
 	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-	powerLevelEditor.powerLevel = [formatter numberFromString:self.powerLevelButton.titleLabel.text];
+	powerLevelEditor.powerLevel = [self setCurrentPowerValue:[formatter numberFromString:self.powerLevelButton.titleLabel.text]];
 	
 	powerLevelEditor.completionHandler = ^(EEPowerLevelViewController* editor) {
 		[self.navigationController dismissViewControllerAnimated:YES
 													  completion:^{
 			
 		}];
-		
+        powerChangedValue = editor.powerLevel;
 		[self.activityIndicator startAnimating];
-		[self editPowerLevelWithNumber:editor.powerLevel];
 	};
 	
 	[self.navigationController presentViewController:powerLevelEditor
@@ -221,6 +225,18 @@
 										  completion:^{
 											  
 										  }];
+}
+
+- (ESTBeaconPower) setCurrentPowerValue:(NSNumber *)currentPower{
+    for (int i = ESTBeaconPowerLevel1; i<= ESTBeaconPowerLevel8;++i){
+        NSNumber *enumPower = [NSNumber numberWithChar:(ESTBeaconPower)i];
+        //NSLog(@"enum power = %li current power = %li",(long)enumPower.integerValue,(long)currentPower.integerValue);
+        if(enumPower.integerValue == currentPower.integerValue)
+        {
+            return (ESTBeaconPower)i;
+        }
+    }
+    return ESTBeaconPowerLevel1;
 }
 
 - (IBAction)editMajorNumberAction:(id)sender {
@@ -287,10 +303,10 @@
 
 #pragma mark - Internal
 
-- (void)editPowerLevelWithNumber:(ESTBeaconPower)powerLevel
+- (void)editPowerLevelWithNumber:(ESTBeaconPower)powerLevel andBeacon:(ESTBeacon *)beacon
 {
 	[self.activityIndicator startAnimating];
-	[self.beacon writeBeaconPower:powerLevel withCompletion:^(unsigned int value, NSError *error) {
+	[beacon writeBeaconPower:powerLevel withCompletion:^(unsigned int value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -391,7 +407,21 @@
 
 - (void)beaconConnectionDidSucceeded:(ESTBeacon*)beacon
 {
+    if([self isPowerChanged]){
+   		[self editPowerLevelWithNumber:powerChangedValue andBeacon:beacon];
+    }
 	[self updateUI];
+}
+
+- (BOOL) isPowerChanged{
+	NSNumberFormatter *formatter = [NSNumberFormatter new];
+	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+	ESTBeaconPower powerLevel = [self setCurrentPowerValue:[formatter numberFromString:self.powerLevelButton.titleLabel.text]];
+    if(powerLevel != powerChangedValue){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 - (void)beaconDidDisconnect:(ESTBeacon*)beacon withError:(NSError*)error
