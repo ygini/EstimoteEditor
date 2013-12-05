@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */; };
 		E10877B21833DECE00ECD3B3 /* EEProximityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877B11833DECE00ECD3B3 /* EEProximityView.m */; };
-		E1E923111833A7FF008604A7 /* libEstimoteSDK7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E922C71833A7FF008604A7 /* libEstimoteSDK7.a */; };
+		E17C99A118510F0100B0D0F0 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */; };
 		E1F1247D18338F2700BE137D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247C18338F2700BE137D /* Foundation.framework */; };
 		E1F1247F18338F2700BE137D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247E18338F2700BE137D /* CoreGraphics.framework */; };
 		E1F1248118338F2700BE137D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1248018338F2700BE137D /* UIKit.framework */; };
@@ -29,7 +29,7 @@
 		E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPowerLevelViewController.m; sourceTree = "<group>"; };
 		E10877B01833DECE00ECD3B3 /* EEProximityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEProximityView.h; sourceTree = "<group>"; };
 		E10877B11833DECE00ECD3B3 /* EEProximityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEProximityView.m; sourceTree = "<group>"; };
-		E1E922C71833A7FF008604A7 /* libEstimoteSDK7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK7.a; path = "Vendors/Estimote/iOS-SDK/EstimoteSDK/libEstimoteSDK7.a"; sourceTree = "<group>"; };
+		E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = "Vendors/Estimote/iOS-SDK/EstimoteSDK/libEstimoteSDK.a"; sourceTree = "<group>"; };
 		E1F1247918338F2700BE137D /* Estimote Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estimote Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F1247C18338F2700BE137D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1F1247E18338F2700BE137D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,10 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17C99A118510F0100B0D0F0 /* libEstimoteSDK.a in Frameworks */,
 				E1F124BB1833914100BE137D /* SystemConfiguration.framework in Frameworks */,
 				E1F124B91833913300BE137D /* CoreLocation.framework in Frameworks */,
 				E1F1247F18338F2700BE137D /* CoreGraphics.framework in Frameworks */,
-				E1E923111833A7FF008604A7 /* libEstimoteSDK7.a in Frameworks */,
 				E1F1248118338F2700BE137D /* UIKit.framework in Frameworks */,
 				E1F1247D18338F2700BE137D /* Foundation.framework in Frameworks */,
 			);
@@ -114,7 +114,7 @@
 		E1F1247B18338F2700BE137D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E1E922C71833A7FF008604A7 /* libEstimoteSDK7.a */,
+				E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */,
 				E1F124BA1833914100BE137D /* SystemConfiguration.framework */,
 				E1F124B81833913300BE137D /* CoreLocation.framework */,
 				E1F1247C18338F2700BE137D /* Foundation.framework */,
