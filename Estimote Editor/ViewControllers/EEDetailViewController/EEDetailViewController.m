@@ -21,6 +21,7 @@
 	SEL	_selectorForEditingAlert;
 	unsigned int _asyncAction;
 	OSSpinLock _asyncActionLock;
+	BOOL _isChangingPowerLevel;
 }
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -75,17 +76,21 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-	self.beacon.delegate = self;
-	[self increaseAsyncAction];
-	[self.beacon connectToBeacon];
-	
-	[self.userControls setValue:@NO forKey:@"enabled"];
+	if (!_isChangingPowerLevel) {
+		self.beacon.delegate = self;
+		[self increaseAsyncAction];
+		[self.beacon connectToBeacon];
+		
+		[self.userControls setValue:@NO forKey:@"enabled"];
+	}
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-	[self.beacon disconnectBeacon];
-	self.beacon.delegate = nil;
+	if (!_isChangingPowerLevel) {
+		[self.beacon disconnectBeacon];
+		self.beacon.delegate = nil;
+	}
 }
 
 - (void)increaseAsyncAction
@@ -252,11 +257,12 @@
 	powerLevelEditor.completionHandler = ^(EEPowerLevelViewController* editor) {
 		[self.navigationController dismissViewControllerAnimated:YES
 													  completion:^{
-														  
+														  _isChangingPowerLevel = NO;
 													  }];
 		[self editPowerLevelWithValue:editor.powerLevel];
 	};
 	
+	_isChangingPowerLevel = YES;
 	[self.navigationController presentViewController:powerLevelEditor
 											animated:YES
 										  completion:^{
