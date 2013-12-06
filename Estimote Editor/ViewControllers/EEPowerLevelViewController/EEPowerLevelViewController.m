@@ -8,7 +8,7 @@
 
 #import "EEPowerLevelViewController.h"
 
-#import <ESTBeacon.h>
+
 
 @interface EEPowerLevelViewController ()
 
@@ -67,7 +67,7 @@
 	
 	cell.textLabel.text = [[self.powerLevelList objectAtIndex:indexPath.row] stringValue];
 	
-	if ([self.powerLevel isEqualToNumber:[self.powerLevelList objectAtIndex:indexPath.row]]) {
+	if (self.powerLevel == [[self.powerLevelList objectAtIndex:indexPath.row] charValue]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
 	else {
@@ -79,7 +79,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	self.powerLevel = [self.powerLevelList objectAtIndex:indexPath.row];
+	self.powerLevel = [[self.powerLevelList objectAtIndex:indexPath.row] charValue];
 	[self.tableView reloadData];
 	self.completionHandler(self);
 }

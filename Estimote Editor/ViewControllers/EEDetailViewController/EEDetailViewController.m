@@ -44,6 +44,7 @@
 - (void)updateUI;
 - (void)increaseAsyncAction;
 - (void)decreaseAsyncAction;
+
 @end
 
 @implementation EEDetailViewController
@@ -225,7 +226,7 @@
 	[self.proximityUUIDButton setTitle:self.beacon.ibeacon.proximityUUID.UUIDString
 							  forState:UIControlStateNormal];
 	
-	self.proximityView.proximity = self.beacon.ibeacon.proximity;
+	[self.proximityView setProximity:self.beacon.ibeacon.proximity];
 	
 	[self.userControls setValue:@YES forKey:@"enabled"];
 	[self decreaseAsyncAction];
@@ -234,34 +235,33 @@
 #pragma mark - Actions
 
 - (IBAction)editPowerLevelAction:(UIButton*)sender {
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Not yet functionnal"
-													 message:@"This function is ready to work but the API seems broken"
-													delegate:self
-										   cancelButtonTitle:@"OK"
-										   otherButtonTitles:nil];
+//	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Not yet functionnal"
+//													 message:@"This function is ready to work but the API seems broken"
+//													delegate:self
+//										   cancelButtonTitle:@"OK"
+//										   otherButtonTitles:nil];
+//	
+//	[alert show];
 	
-	[alert show];
-
-//	EEPowerLevelViewController *powerLevelEditor = [[EEPowerLevelViewController alloc] initWithStyle:UITableViewStylePlain];
-//	
-//	NSNumberFormatter *formatter = [NSNumberFormatter new];
-//	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-//	powerLevelEditor.powerLevel = [formatter numberFromString:self.powerLevelButton.titleLabel.text];
-//	
-//	powerLevelEditor.completionHandler = ^(EEPowerLevelViewController* editor) {
-//		[self.navigationController dismissViewControllerAnimated:YES
-//													  completion:^{
-//			
-//		}];
-//		
-//		[self editPowerLevelWithNumber:editor.powerLevel];
-//	};
-//	
-//	[self.navigationController presentViewController:powerLevelEditor
-//											animated:YES
-//										  completion:^{
-//											  
-//										  }];
+	EEPowerLevelViewController *powerLevelEditor = [[EEPowerLevelViewController alloc] initWithStyle:UITableViewStylePlain];
+	
+	NSNumberFormatter *formatter = [NSNumberFormatter new];
+	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+	powerLevelEditor.powerLevel = [[formatter numberFromString:self.powerLevelButton.titleLabel.text] charValue];
+	
+	powerLevelEditor.completionHandler = ^(EEPowerLevelViewController* editor) {
+		[self.navigationController dismissViewControllerAnimated:YES
+													  completion:^{
+														  
+													  }];
+		[self editPowerLevelWithValue:editor.powerLevel];
+	};
+	
+	[self.navigationController presentViewController:powerLevelEditor
+											animated:YES
+										  completion:^{
+											  
+										  }];
 }
 
 - (IBAction)editMajorNumberAction:(id)sender {
@@ -326,12 +326,33 @@
 					 }];
 }
 
+
+- (IBAction)updateFirmware:(id)sender {
+    [self increaseAsyncAction];
+	[self.beacon updateBeaconFirmwareWithProgress:^(NSString *value, NSError *error) {
+        NSLog(@"Updating %@", value);
+    }
+									andCompletion:^(NSError *error) {
+										if (error) {
+											UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote update error"
+																							 message:[error localizedDescription]
+																							delegate:self
+																				   cancelButtonTitle:@"OK"
+																				   otherButtonTitles:nil];
+											[alert show];
+										}
+										
+										[self updateUI];
+										[self decreaseAsyncAction];
+									}];
+}
+
 #pragma mark - Internal
 
-- (void)editPowerLevelWithNumber:(NSNumber*)powerLevel
+- (void)editPowerLevelWithValue:(ESTBeaconPower)powerLevel
 {
 	[self increaseAsyncAction];
-	[self.beacon writeBeaconPower:[powerLevel charValue] withCompletion:^(ESTBeaconPower value, NSError *error) {
+	[self.beacon writeBeaconPower:powerLevel withCompletion:^(ESTBeaconPower value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -353,7 +374,7 @@
 	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	
 	NSNumber *number = [formatter numberFromString:majorString];
-	
+
 	[self increaseAsyncAction];
 	[self.beacon writeBeaconMajor:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
