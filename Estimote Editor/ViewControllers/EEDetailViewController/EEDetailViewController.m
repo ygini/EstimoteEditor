@@ -10,6 +10,8 @@
 
 #import <ESTBeacon.h>
 
+#import <libkern/OSAtomic.h>
+
 #import "EEPowerLevelViewController.h"
 #import "EEProximityView.h"
 
@@ -17,6 +19,8 @@
 {
 	BOOL _standardAlertRequireNavigationPop;
 	SEL	_selectorForEditingAlert;
+	unsigned int _asyncAction;
+	OSSpinLock _asyncActionLock;
 }
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -30,7 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *powerLevelButton;
 @property (weak, nonatomic) IBOutlet UIButton *majorNumberButton;
 @property (weak, nonatomic) IBOutlet UIButton *minorNumberButton;
-@property (weak, nonatomic) IBOutlet UIButton *frequencyButton;
+@property (weak, nonatomic) IBOutlet UIButton *advertIntervalButton;
 @property (weak, nonatomic) IBOutlet UIButton *proximityUUIDButton;
 
 @property (weak, nonatomic) IBOutlet EEProximityView *proximityView;
@@ -38,7 +42,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *userControls;
 
 - (void)updateUI;
-
+- (void)increaseAsyncAction;
+- (void)decreaseAsyncAction;
 @end
 
 @implementation EEDetailViewController
@@ -47,7 +52,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _asyncActionLock = OS_SPINLOCK_INIT;
     }
     return self;
 }
@@ -59,8 +64,6 @@
 	self.activityIndicator.hidesWhenStopped = YES;
 	UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
 	[[self navigationItem] setRightBarButtonItem:barButton];
-	
-	[self.activityIndicator startAnimating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,6 +75,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 	self.beacon.delegate = self;
+	[self increaseAsyncAction];
 	[self.beacon connectToBeacon];
 	
 	[self.userControls setValue:@NO forKey:@"enabled"];
@@ -79,17 +83,36 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-	self.beacon.delegate = nil;
 	[self.beacon disconnectBeacon];
+	self.beacon.delegate = nil;
+}
+
+- (void)increaseAsyncAction
+{
+	OSSpinLockLock(&_asyncActionLock);
+	_asyncAction++;
+	[self.activityIndicator startAnimating];
+	OSSpinLockUnlock(&_asyncActionLock);
+}
+- (void)decreaseAsyncAction
+{
+	OSSpinLockLock(&_asyncActionLock);
+	_asyncAction--;
+	if (0 == _asyncAction) {
+		[self.activityIndicator stopAnimating];
+	}
+	OSSpinLockUnlock(&_asyncActionLock);
 }
 
 - (void)updateUI
 {
+	[self increaseAsyncAction];
 	self.title = self.beacon.peripheral.name;
 	
 	self.macAddressLabel.text = self.beacon.macAddress;
 	self.rssiLabel.text = [self.beacon.rssi stringValue];
 	
+	[self increaseAsyncAction];
 	[self.beacon readBeaconHardwareVersionWithCompletion:^(NSString *value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
@@ -101,7 +124,10 @@
 			[alert show];
 		}
 		self.hardwareVersionLabel.text = value;
+		[self decreaseAsyncAction];
 	}];
+	
+	[self increaseAsyncAction];
 	[self.beacon readBeaconFirmwareVersionWithCompletion:^(NSString *value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
@@ -113,8 +139,11 @@
 			[alert show];
 		}
 		self.firmwareVersionLabel.text = value;
+		[self decreaseAsyncAction];
 	}];
-	[self.beacon readBeaconBatteryWithCompletion:^(unsigned int value, NSError *error) {
+	
+	[self increaseAsyncAction];
+	[self.beacon readBeaconBatteryWithCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
 															 message:[error localizedDescription]
@@ -125,9 +154,11 @@
 			[alert show];
 		}
 		self.batteryLevelLabel.text = [NSString stringWithFormat:@"%i", value];
+		[self decreaseAsyncAction];
 	}];
 	
-	[self.beacon readBeaconPowerWithCompletion:^(unsigned int value, NSError *error) {
+	[self increaseAsyncAction];
+	[self.beacon readBeaconPowerWithCompletion:^(ESTBeaconPower value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
 															 message:[error localizedDescription]
@@ -139,8 +170,11 @@
 		}
 		[self.powerLevelButton setTitle:[NSString stringWithFormat:@"%i", value]
 							   forState:UIControlStateNormal];
+		[self decreaseAsyncAction];
 	}];
-	[self.beacon readBeaconMajorWithCompletion:^(unsigned int value, NSError *error) {
+	
+	[self increaseAsyncAction];
+	[self.beacon readBeaconMajorWithCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
 															 message:[error localizedDescription]
@@ -152,8 +186,11 @@
 		}
 		[self.majorNumberButton setTitle:[NSString stringWithFormat:@"%i", value]
 								forState:UIControlStateNormal];
+		[self decreaseAsyncAction];
 	}];
-	[self.beacon readBeaconMinorWithCompletion:^(unsigned int value, NSError *error) {
+	
+	[self increaseAsyncAction];
+	[self.beacon readBeaconMinorWithCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
 															 message:[error localizedDescription]
@@ -165,8 +202,11 @@
 		}
 		[self.minorNumberButton setTitle:[NSString stringWithFormat:@"%i", value]
 								forState:UIControlStateNormal];
+		[self decreaseAsyncAction];
 	}];
-	[self.beacon readBeaconFrequencyWithCompletion:^(unsigned int value, NSError *error) {
+	
+	[self increaseAsyncAction];
+	[self.beacon readBeaconAdvIntervalWithCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
 															 message:[error localizedDescription]
@@ -176,17 +216,19 @@
 			
 			[alert show];
 		}
-		[self.frequencyButton setTitle:[NSString stringWithFormat:@"%i", value]
+		[self.advertIntervalButton setTitle:[NSString stringWithFormat:@"%i", value]
 							  forState:UIControlStateNormal];
+		[self decreaseAsyncAction];
 	}];
+	
 	
 	[self.proximityUUIDButton setTitle:self.beacon.ibeacon.proximityUUID.UUIDString
 							  forState:UIControlStateNormal];
 	
 	self.proximityView.proximity = self.beacon.ibeacon.proximity;
 	
-	[self.activityIndicator stopAnimating];
 	[self.userControls setValue:@YES forKey:@"enabled"];
+	[self decreaseAsyncAction];
 }
 
 #pragma mark - Actions
@@ -199,7 +241,7 @@
 										   otherButtonTitles:nil];
 	
 	[alert show];
-	
+
 //	EEPowerLevelViewController *powerLevelEditor = [[EEPowerLevelViewController alloc] initWithStyle:UITableViewStylePlain];
 //	
 //	NSNumberFormatter *formatter = [NSNumberFormatter new];
@@ -212,7 +254,6 @@
 //			
 //		}];
 //		
-//		[self.activityIndicator startAnimating];
 //		[self editPowerLevelWithNumber:editor.powerLevel];
 //	};
 //	
@@ -225,7 +266,7 @@
 
 - (IBAction)editMajorNumberAction:(id)sender {
 	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Update Major Number"
-													 message:@"Missing specifications for min and max"
+													 message:@"Pick a value between 0 and 65 535"
 													delegate:self
 										   cancelButtonTitle:@"Cancel"
 										   otherButtonTitles:@"Save", nil];
@@ -242,7 +283,7 @@
 
 - (IBAction)editMinorNumberAction:(id)sender {
 	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Update Minor Number"
-													 message:@"Missing specifications for min and max"
+													 message:@"Pick a value between 0 and 65 535"
 													delegate:self
 										   cancelButtonTitle:@"Cancel"
 										   otherButtonTitles:@"OK", nil];
@@ -257,9 +298,9 @@
 	[alert show];
 }
 
-- (IBAction)editFrequencyAction:(id)sender {
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Update frequency"
-													 message:@"Missing specification for accepted values"
+- (IBAction)editAdvertIntervalAction:(id)sender {
+	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Update advertising interval"
+													 message:@"Pick a value between 50 and 2000 ms"
 													delegate:self
 										   cancelButtonTitle:@"Cancel"
 										   otherButtonTitles:@"OK", nil];
@@ -267,9 +308,9 @@
 	alert.alertViewStyle = UIAlertViewStylePlainTextInput;
 	
 	[[alert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
-	[alert textFieldAtIndex:0].text = self.frequencyButton.titleLabel.text;
+	[alert textFieldAtIndex:0].text = self.advertIntervalButton.titleLabel.text;
 	
-	_selectorForEditingAlert = @selector(editFrequencyWithString:);
+	_selectorForEditingAlert = @selector(editAdvertIntervalWithString:);
 	
 	[alert show];
 }
@@ -289,8 +330,8 @@
 
 - (void)editPowerLevelWithNumber:(NSNumber*)powerLevel
 {
-	[self.activityIndicator startAnimating];
-	[self.beacon writeBeaconPower:[powerLevel shortValue] withCompletion:^(unsigned int value, NSError *error) {
+	[self increaseAsyncAction];
+	[self.beacon writeBeaconPower:[powerLevel charValue] withCompletion:^(ESTBeaconPower value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -302,6 +343,7 @@
 		}
 		
 		[self updateUI];
+		[self decreaseAsyncAction];
 	}];
 }
 
@@ -312,8 +354,8 @@
 	
 	NSNumber *number = [formatter numberFromString:majorString];
 	
-	[self.activityIndicator startAnimating];
-	[self.beacon writeBeaconMajor:[number shortValue] withCompletion:^(unsigned int value, NSError *error) {
+	[self increaseAsyncAction];
+	[self.beacon writeBeaconMajor:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -325,6 +367,7 @@
 		}
 		
 		[self updateUI];
+		[self decreaseAsyncAction];
 	}];
 }
 
@@ -335,8 +378,8 @@
 	
 	NSNumber *number = [formatter numberFromString:minorString];
 	
-	[self.activityIndicator startAnimating];
-	[self.beacon writeBeaconMinor:[number shortValue] withCompletion:^(unsigned int value, NSError *error) {
+	[self increaseAsyncAction];
+	[self.beacon writeBeaconMinor:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -348,18 +391,19 @@
 		}
 		
 		[self updateUI];
+		[self decreaseAsyncAction];
 	}];
 }
 
-- (void)editFrequencyWithString:(NSString*)frequencyString
+- (void)editAdvertIntervalWithString:(NSString*)frequencyString
 {
 	NSNumberFormatter *formatter = [NSNumberFormatter new];
 	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	
 	NSNumber *number = [formatter numberFromString:frequencyString];
 	
-	[self.activityIndicator startAnimating];
-	[self.beacon writeBeaconFrequency:[number shortValue] withCompletion:^(unsigned int value, NSError *error) {
+	[self increaseAsyncAction];
+	[self.beacon writeBeaconAdvInterval:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
 			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
@@ -371,6 +415,7 @@
 		}
 		
 		[self updateUI];
+		[self decreaseAsyncAction];
 	}];
 }
 
@@ -385,13 +430,13 @@
 										   otherButtonTitles:nil];
 	_standardAlertRequireNavigationPop = YES;
 	[alert show];
-	
-	[self.activityIndicator stopAnimating];
+	[self decreaseAsyncAction];
 }
 
 - (void)beaconConnectionDidSucceeded:(ESTBeacon*)beacon
 {
 	[self updateUI];
+	[self decreaseAsyncAction];
 }
 
 - (void)beaconDidDisconnect:(ESTBeacon*)beacon withError:(NSError*)error
@@ -403,8 +448,7 @@
 										   otherButtonTitles:nil];
 	_standardAlertRequireNavigationPop = YES;
 	[alert show];
-	
-	[self.activityIndicator stopAnimating];
+	[self decreaseAsyncAction];
 }
 
 #pragma mark - UIAlertViewDelegate
