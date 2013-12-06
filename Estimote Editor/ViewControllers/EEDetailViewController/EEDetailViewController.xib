@@ -23,6 +23,7 @@
                 <outletCollection property="userControls" destination="qbg-it-lG0" id="LIk-cr-OOp"/>
                 <outletCollection property="userControls" destination="DuV-sZ-4ia" id="YlF-qN-3E8"/>
                 <outletCollection property="userControls" destination="4MC-GN-Uoe" id="vxD-J7-Umk"/>
+                <outletCollection property="userControls" destination="qa7-oD-k06" id="BW3-fx-urY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
