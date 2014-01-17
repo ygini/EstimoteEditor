@@ -51,9 +51,7 @@
 {
 	if ([ESTIMOTE_REGION_ALL isEqualToString:[region identifier]]) {
 		self.beacons = [beacons sortedArrayUsingComparator:^NSComparisonResult(ESTBeacon *obj1, ESTBeacon *obj2) {
-			return [[NSString stringWithFormat:@"%@ - %@ - %@", obj1.ibeacon.proximityUUID.UUIDString, obj1.ibeacon.major, obj1.ibeacon.minor]
-					compare:
-					[NSString stringWithFormat:@"%@ - %@ - %@", obj2.ibeacon.proximityUUID.UUIDString, obj2.ibeacon.major, obj2.ibeacon.minor]];
+			return [[NSString stringWithFormat:@"%@ - %@", obj1.ibeacon.major, obj1.ibeacon.minor] compare:[NSString stringWithFormat:@"%@ - %@", obj2.ibeacon.major, obj2.ibeacon.minor]];
 		}];
 		[self.tableView reloadData];
 	}
@@ -73,7 +71,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString* CellIdentifier = @"Cell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
 	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
@@ -99,7 +97,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	ESTBeacon *beacon = [self.beacons objectAtIndex:indexPath.row];
+	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
 	
     EEDetailViewController* viewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"detail-vc"];
 	viewController.beacon = beacon;
