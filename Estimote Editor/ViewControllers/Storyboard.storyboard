@@ -225,10 +225,11 @@
                                     <action selector="editAdvertIntervalAction:" destination="3VB-11-V1H" eventType="touchUpInside" id="WJN-Ki-Czf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JD-2Q-lO4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JD-2Q-lO4">
                                 <rect key="frame" x="20" y="470" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="S6R-3A-lms"/>
                                     <constraint firstAttribute="height" constant="30" id="xiR-Ld-rt1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -239,7 +240,7 @@
                                     <action selector="updateFirmware:" destination="3VB-11-V1H" eventType="touchUpInside" id="IuN-aJ-F2f"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6A-T6-gj1" customClass="EEProximityView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6A-T6-gj1" customClass="EEProximityView">
                                 <rect key="frame" x="20" y="520" width="235" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
