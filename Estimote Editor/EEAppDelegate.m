@@ -13,13 +13,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-	self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[EETableViewController alloc] initWithStyle:UITableViewStylePlain]];
-	[(UINavigationController*)self.window.rootViewController navigationBar].translucent = NO;
-	
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 

@@ -50,9 +50,9 @@
 
 @implementation EEDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder*)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         _asyncActionLock = OS_SPINLOCK_INIT;
     }
@@ -71,7 +71,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -239,7 +238,8 @@
 
 #pragma mark - Actions
 
-- (IBAction)editPowerLevelAction:(UIButton*)sender {
+- (IBAction)editPowerLevelAction:(UIButton*)sender
+{
 //	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Not yet functionnal"
 //													 message:@"This function is ready to work but the API seems broken"
 //													delegate:self
@@ -270,7 +270,8 @@
 										  }];
 }
 
-- (IBAction)editMajorNumberAction:(id)sender {
+- (IBAction)editMajorNumberAction:(id)sender
+{
 	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Update Major Number"
 													 message:@"Pick a value between 0 and 65 535"
 													delegate:self
@@ -287,7 +288,8 @@
 	[alert show];
 }
 
-- (IBAction)editMinorNumberAction:(id)sender {
+- (IBAction)editMinorNumberAction:(id)sender
+{
 	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Update Minor Number"
 													 message:@"Pick a value between 0 and 65 535"
 													delegate:self
@@ -304,7 +306,8 @@
 	[alert show];
 }
 
-- (IBAction)editAdvertIntervalAction:(id)sender {
+- (IBAction)editAdvertIntervalAction:(id)sender
+{
 	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Update advertising interval"
 													 message:@"Pick a value between 50 and 2000 ms"
 													delegate:self
@@ -321,7 +324,8 @@
 	[alert show];
 }
 
-- (IBAction)shareProximityUUIDAction:(id)sender {
+- (IBAction)shareProximityUUIDAction:(id)sender
+{
 	UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.beacon.ibeacon.proximityUUID.UUIDString]
 																						 applicationActivities:nil];
 	
@@ -333,7 +337,8 @@
 }
 
 
-- (IBAction)updateFirmware:(id)sender {
+- (IBAction)updateFirmware:(id)sender
+{
     [self increaseAsyncAction];
 	[self.beacon updateBeaconFirmwareWithProgress:^(NSString *value, NSError *error) {
         NSLog(@"Updating %@", value);
@@ -482,19 +487,17 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	if (UIAlertViewStyleDefault == alertView.alertViewStyle)
-	{
-		if (_standardAlertRequireNavigationPop) [self.navigationController popViewControllerAnimated:YES];
-	}
-	else if (UIAlertViewStylePlainTextInput == alertView.alertViewStyle)
-	{
+	if (UIAlertViewStyleDefault == alertView.alertViewStyle) {
+		if (_standardAlertRequireNavigationPop) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+	} else if (UIAlertViewStylePlainTextInput == alertView.alertViewStyle) {
 		if ([alertView cancelButtonIndex] != buttonIndex) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 			[self performSelector:_selectorForEditingAlert withObject:[[alertView textFieldAtIndex:0] text]];
 #pragma clang diagnostic pop
 		}
-		
 	}
 }
 

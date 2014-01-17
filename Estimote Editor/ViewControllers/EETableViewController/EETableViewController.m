@@ -24,9 +24,9 @@
 
 @implementation EETableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithCoder:(NSCoder*)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
 		self.beaconManager = [[ESTBeaconManager alloc] init];
 		self.beaconManager.delegate = self;
@@ -34,15 +34,8 @@
 		
 		ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initRegionWithIdentifier:ESTIMOTE_REGION_ALL];
 		[self.beaconManager startRangingBeaconsInRegion:region];
-		
-		self.title = @"Estimote Editor";
 	}
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,7 +92,7 @@
 {
 	ESTBeacon *beacon = [self.beacons objectAtIndex:indexPath.row];
 	
-	EEDetailViewController *viewController = [[EEDetailViewController alloc] initWithNibName:@"EEDetailViewController" bundle:nil];
+	EEDetailViewController* viewController = [[EEDetailViewController alloc] initWithNibName:@"EEDetailViewController" bundle:nil];
 	viewController.beacon = beacon;
 	
 	[self.navigationController pushViewController:viewController animated:YES];
