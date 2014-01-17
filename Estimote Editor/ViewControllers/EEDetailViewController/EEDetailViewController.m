@@ -463,6 +463,9 @@
 	_standardAlertRequireNavigationPop = YES;
 	//[alert show];
 	[self decreaseAsyncAction];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
 }
 
 - (void)beaconConnectionDidSucceeded:(ESTBeacon*)beacon
@@ -481,6 +484,9 @@
 	_standardAlertRequireNavigationPop = YES;
 	//[alert show];
 	[self decreaseAsyncAction];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
 }
 
 #pragma mark - UIAlertViewDelegate
