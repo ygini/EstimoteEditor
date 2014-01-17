@@ -64,7 +64,7 @@
     [super viewDidLoad];
 	self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	self.activityIndicator.hidesWhenStopped = YES;
-	UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
+	UIBarButtonItem* barButton = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
 	[[self navigationItem] setRightBarButtonItem:barButton];
 }
 
@@ -455,13 +455,13 @@
 
 - (void)beaconConnectionDidFail:(ESTBeacon*)beacon withError:(NSError*)error
 {
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
+	/*UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
 													 message:[error localizedDescription]
 													delegate:self
 										   cancelButtonTitle:@"OK"
-										   otherButtonTitles:nil];
+										   otherButtonTitles:nil];*/
 	_standardAlertRequireNavigationPop = YES;
-	[alert show];
+	//[alert show];
 	[self decreaseAsyncAction];
 }
 
@@ -473,13 +473,13 @@
 
 - (void)beaconDidDisconnect:(ESTBeacon*)beacon withError:(NSError*)error
 {
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
+	/*UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
 													 message:[error localizedDescription]
 													delegate:self
 										   cancelButtonTitle:@"OK"
-										   otherButtonTitles:nil];
+										   otherButtonTitles:nil];*/
 	_standardAlertRequireNavigationPop = YES;
-	[alert show];
+	//[alert show];
 	[self decreaseAsyncAction];
 }
 
