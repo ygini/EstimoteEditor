@@ -27,7 +27,7 @@
                         <viewControllerLayoutGuide type="top" id="JCg-CM-ZsP"/>
                         <viewControllerLayoutGuide type="bottom" id="U5a-r1-E2w"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hub-fk-Rt3">
+                    <scrollView key="view" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hub-fk-Rt3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
