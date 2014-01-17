@@ -12,7 +12,6 @@
 		C3F69F19188988BB00D09948 /* advert.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F10188988BB00D09948 /* advert.png */; };
 		C3F69F1A188988BB00D09948 /* battery.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F11188988BB00D09948 /* battery.png */; };
 		C3F69F1B188988BB00D09948 /* firm.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F12188988BB00D09948 /* firm.png */; };
-		C3F69F1C188988BB00D09948 /* firm.psd in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F13188988BB00D09948 /* firm.psd */; };
 		C3F69F1D188988BB00D09948 /* hardware.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F14188988BB00D09948 /* hardware.png */; };
 		C3F69F1E188988BB00D09948 /* major.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F15188988BB00D09948 /* major.png */; };
 		C3F69F1F188988BB00D09948 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F16188988BB00D09948 /* power.png */; };
@@ -39,7 +38,6 @@
 		C3F69F10188988BB00D09948 /* advert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = advert.png; sourceTree = "<group>"; };
 		C3F69F11188988BB00D09948 /* battery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery.png; sourceTree = "<group>"; };
 		C3F69F12188988BB00D09948 /* firm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firm.png; sourceTree = "<group>"; };
-		C3F69F13188988BB00D09948 /* firm.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = firm.psd; sourceTree = "<group>"; };
 		C3F69F14188988BB00D09948 /* hardware.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hardware.png; sourceTree = "<group>"; };
 		C3F69F15188988BB00D09948 /* major.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = major.png; sourceTree = "<group>"; };
 		C3F69F16188988BB00D09948 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 				C3F69F10188988BB00D09948 /* advert.png */,
 				C3F69F11188988BB00D09948 /* battery.png */,
 				C3F69F12188988BB00D09948 /* firm.png */,
-				C3F69F13188988BB00D09948 /* firm.psd */,
 				C3F69F14188988BB00D09948 /* hardware.png */,
 				C3F69F15188988BB00D09948 /* major.png */,
 				C3F69F16188988BB00D09948 /* power.png */,
@@ -271,7 +268,6 @@
 				C3F69F1A188988BB00D09948 /* battery.png in Resources */,
 				C3F69F1F188988BB00D09948 /* power.png in Resources */,
 				E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */,
-				C3F69F1C188988BB00D09948 /* firm.psd in Resources */,
 				E1F1248F18338F2700BE137D /* Images.xcassets in Resources */,
 				C3F69F1D188988BB00D09948 /* hardware.png in Resources */,
 				C3F69F20188988BB00D09948 /* rssi.png in Resources */,

@@ -12,10 +12,30 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableFooterView" contentMode="redraw" placeholder="Search" id="OHW-Go-xwM">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="rq8-su-T8K" id="lar-Yr-WDh"/>
+                            </connections>
+                        </searchBar>
                     </tableView>
                     <navigationItem key="navigationItem" title="Estimote Editor" id="tDT-f0-D58"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="f5A-nK-NXw" id="Vdr-xK-miD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZh-PB-5bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="f5A-nK-NXw">
+                    <connections>
+                        <outlet property="delegate" destination="rq8-su-T8K" id="LHw-70-aK9"/>
+                        <outlet property="searchBar" destination="OHW-Go-xwM" id="cTr-5N-acC"/>
+                        <outlet property="searchContentsController" destination="rq8-su-T8K" id="uF0-Ah-2fc"/>
+                        <outlet property="searchResultsDataSource" destination="rq8-su-T8K" id="XEG-j8-PZy"/>
+                        <outlet property="searchResultsDelegate" destination="rq8-su-T8K" id="7FG-tO-YzF"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-514" y="-237"/>
         </scene>
