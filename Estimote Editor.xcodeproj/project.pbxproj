@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E34824818894F1A0078AAFD /* Storyboard_old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E34824718894F1A0078AAFD /* Storyboard_old.storyboard */; };
 		C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0C1889773600D09948 /* Storyboard.storyboard */; };
 		E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */; };
 		E10877B21833DECE00ECD3B3 /* EEProximityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877B11833DECE00ECD3B3 /* EEProximityView.m */; };
@@ -23,11 +22,9 @@
 		E1F124B91833913300BE137D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F124B81833913300BE137D /* CoreLocation.framework */; };
 		E1F124BB1833914100BE137D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F124BA1833914100BE137D /* SystemConfiguration.framework */; };
 		E1F124C0183392C600BE137D /* EEDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F124BE183392C600BE137D /* EEDetailViewController.m */; };
-		E1F124C1183392C600BE137D /* EEDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F124BF183392C600BE137D /* EEDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9E34824718894F1A0078AAFD /* Storyboard_old.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_old.storyboard; sourceTree = "<group>"; };
 		C3F69F0C1889773600D09948 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		E10877AB1833D08100ECD3B3 /* EEPowerLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPowerLevelViewController.h; sourceTree = "<group>"; };
 		E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPowerLevelViewController.m; sourceTree = "<group>"; };
@@ -52,7 +49,6 @@
 		E1F124BA1833914100BE137D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E1F124BD183392C600BE137D /* EEDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEDetailViewController.h; sourceTree = "<group>"; };
 		E1F124BE183392C600BE137D /* EEDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEDetailViewController.m; sourceTree = "<group>"; };
-		E1F124BF183392C600BE137D /* EEDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EEDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +152,6 @@
 		E1F124AB18338F5900BE137D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E34824718894F1A0078AAFD /* Storyboard_old.storyboard */,
 				C3F69F0C1889773600D09948 /* Storyboard.storyboard */,
 				E10877AA1833D05900ECD3B3 /* EEPowerLevelViewController */,
 				E1F124BC183392B200BE137D /* EEDetailViewController */,
@@ -179,7 +174,6 @@
 			children = (
 				E1F124BD183392C600BE137D /* EEDetailViewController.h */,
 				E1F124BE183392C600BE137D /* EEDetailViewController.m */,
-				E1F124BF183392C600BE137D /* EEDetailViewController.xib */,
 			);
 			path = EEDetailViewController;
 			sourceTree = "<group>";
@@ -239,8 +233,6 @@
 			files = (
 				E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */,
 				E1F1248F18338F2700BE137D /* Images.xcassets in Resources */,
-				E1F124C1183392C600BE137D /* EEDetailViewController.xib in Resources */,
-				9E34824818894F1A0078AAFD /* Storyboard_old.storyboard in Resources */,
 				C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
