@@ -464,6 +464,9 @@
 	//[alert show];
 	[self decreaseAsyncAction];
     NSLog(@"beacon connection did fail");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
 }
 
 - (void)beaconConnectionDidSucceeded:(ESTBeacon*)beacon
