@@ -51,7 +51,10 @@
 {
 	if ([ESTIMOTE_REGION_ALL isEqualToString:[region identifier]]) {
 		self.beacons = [beacons sortedArrayUsingComparator:^NSComparisonResult(ESTBeacon *obj1, ESTBeacon *obj2) {
-			return [[NSString stringWithFormat:@"%@ - %@", obj1.ibeacon.major, obj1.ibeacon.minor] compare:[NSString stringWithFormat:@"%@ - %@", obj2.ibeacon.major, obj2.ibeacon.minor]];
+            if ([obj1.ibeacon.major intValue] != [obj2.ibeacon.major intValue]) {
+                return [obj1.ibeacon.major intValue] > [obj2.ibeacon.major intValue];
+            }
+            return [obj1.ibeacon.minor intValue] > [obj2.ibeacon.minor intValue];
 		}];
 		[self.tableView reloadData];
 	}
