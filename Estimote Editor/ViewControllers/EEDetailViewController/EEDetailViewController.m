@@ -365,7 +365,7 @@
 	[self increaseAsyncAction];
 	[self.beacon writeBeaconPower:powerLevel withCompletion:^(ESTBeaconPower value, NSError *error) {
 		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
+			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
 															delegate:self
 												   cancelButtonTitle:@"OK"
@@ -381,15 +381,15 @@
 
 - (void)editMajorNumberWithString:(NSString*)majorString
 {
-	NSNumberFormatter *formatter = [NSNumberFormatter new];
+	NSNumberFormatter* formatter = [NSNumberFormatter new];
 	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	
-	NSNumber *number = [formatter numberFromString:majorString];
+	NSNumber* number = [formatter numberFromString:majorString];
 
 	[self increaseAsyncAction];
-	[self.beacon writeBeaconMajor:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError *error) {
+	[self.beacon writeBeaconMajor:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError* error) {
 		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
+			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
 															delegate:self
 												   cancelButtonTitle:@"OK"
@@ -405,15 +405,15 @@
 
 - (void)editMinorNumberWithString:(NSString*)minorString
 {
-	NSNumberFormatter *formatter = [NSNumberFormatter new];
+	NSNumberFormatter* formatter = [NSNumberFormatter new];
 	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	
-	NSNumber *number = [formatter numberFromString:minorString];
+	NSNumber* number = [formatter numberFromString:minorString];
 	
 	[self increaseAsyncAction];
-	[self.beacon writeBeaconMinor:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError *error) {
+	[self.beacon writeBeaconMinor:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError* error) {
 		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
+			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
 															delegate:self
 												   cancelButtonTitle:@"OK"
@@ -429,15 +429,15 @@
 
 - (void)editAdvertIntervalWithString:(NSString*)frequencyString
 {
-	NSNumberFormatter *formatter = [NSNumberFormatter new];
+	NSNumberFormatter* formatter = [NSNumberFormatter new];
 	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	
-	NSNumber *number = [formatter numberFromString:frequencyString];
+	NSNumber* number = [formatter numberFromString:frequencyString];
 	
 	[self increaseAsyncAction];
 	[self.beacon writeBeaconAdvInterval:[number unsignedShortValue] withCompletion:^(unsigned short value, NSError *error) {
 		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
+			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote write error"
 															 message:[error localizedDescription]
 															delegate:self
 												   cancelButtonTitle:@"OK"
@@ -455,7 +455,7 @@
 
 - (void)beaconConnectionDidFail:(ESTBeacon*)beacon withError:(NSError*)error
 {
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
 													 message:[error localizedDescription]
 													delegate:self
 										   cancelButtonTitle:@"OK"
@@ -473,7 +473,7 @@
 
 - (void)beaconDidDisconnect:(ESTBeacon*)beacon withError:(NSError*)error
 {
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
 													 message:[error localizedDescription]
 													delegate:self
 										   cancelButtonTitle:@"OK"
