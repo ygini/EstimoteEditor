@@ -13,16 +13,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tDT-f0-D58"/>
+                    <navigationItem key="navigationItem" title="Estimote Editor" id="tDT-f0-D58"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZh-PB-5bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-514" y="-237"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail View Controller - Edit-->
         <scene sceneID="uUd-5D-cQ6">
             <objects>
-                <viewController storyboardIdentifier="detail-vc" id="3VB-11-V1H" customClass="EEDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detail-vc" title="Edit" id="3VB-11-V1H" customClass="EEDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JCg-CM-ZsP"/>
                         <viewControllerLayoutGuide type="bottom" id="U5a-r1-E2w"/>
