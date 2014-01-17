@@ -93,7 +93,7 @@
 	ESTBeacon *beacon = [self.beacons objectAtIndex:indexPath.row];
 	
 	//EEDetailViewController* viewController = [[EEDetailViewController alloc] initWithNibName:@"EEDetailViewController" bundle:nil];
-    EEDetailViewController* viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"detail-vc"];
+    EEDetailViewController* viewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"detail-vc"];
 	viewController.beacon = beacon;
 	
 	[[self navigationController] pushViewController:viewController animated:YES];

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E34824818894F1A0078AAFD /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E34824718894F1A0078AAFD /* Storyboard_iPad.storyboard */; };
-		9E34824A18894F2F0078AAFD /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E34824918894F2F0078AAFD /* Storyboard_iPhone.storyboard */; };
+		9E34824818894F1A0078AAFD /* Storyboard_old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E34824718894F1A0078AAFD /* Storyboard_old.storyboard */; };
+		C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0C1889773600D09948 /* Storyboard.storyboard */; };
 		E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */; };
 		E10877B21833DECE00ECD3B3 /* EEProximityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877B11833DECE00ECD3B3 /* EEProximityView.m */; };
 		E17C99A118510F0100B0D0F0 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */; };
@@ -27,8 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9E34824718894F1A0078AAFD /* Storyboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPad.storyboard; sourceTree = "<group>"; };
-		9E34824918894F2F0078AAFD /* Storyboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
+		9E34824718894F1A0078AAFD /* Storyboard_old.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_old.storyboard; sourceTree = "<group>"; };
+		C3F69F0C1889773600D09948 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		E10877AB1833D08100ECD3B3 /* EEPowerLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPowerLevelViewController.h; sourceTree = "<group>"; };
 		E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPowerLevelViewController.m; sourceTree = "<group>"; };
 		E10877B01833DECE00ECD3B3 /* EEProximityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEProximityView.h; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		E1F124AB18338F5900BE137D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E34824718894F1A0078AAFD /* Storyboard_iPad.storyboard */,
-				9E34824918894F2F0078AAFD /* Storyboard_iPhone.storyboard */,
+				9E34824718894F1A0078AAFD /* Storyboard_old.storyboard */,
+				C3F69F0C1889773600D09948 /* Storyboard.storyboard */,
 				E10877AA1833D05900ECD3B3 /* EEPowerLevelViewController */,
 				E1F124BC183392B200BE137D /* EEDetailViewController */,
 				E1F124AC18338F5900BE137D /* EETableViewController */,
@@ -239,9 +239,9 @@
 			files = (
 				E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */,
 				E1F1248F18338F2700BE137D /* Images.xcassets in Resources */,
-				9E34824A18894F2F0078AAFD /* Storyboard_iPhone.storyboard in Resources */,
 				E1F124C1183392C600BE137D /* EEDetailViewController.xib in Resources */,
-				9E34824818894F1A0078AAFD /* Storyboard_iPad.storyboard in Resources */,
+				9E34824818894F1A0078AAFD /* Storyboard_old.storyboard in Resources */,
+				C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
