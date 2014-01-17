@@ -74,16 +74,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-	ESTBeacon *beacon = [self.beacons objectAtIndex:indexPath.row];
+	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
 	
     if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
+    
+    NSString* proximity = @"Unknown";
+	if (beacon.ibeacon.proximity == CLProximityImmediate) {
+        proximity = @"Immediate";
+    } else if (beacon.ibeacon.proximity == CLProximityNear) {
+        proximity = @"Near";
+    } else if (beacon.ibeacon.proximity == CLProximityFar) {
+        proximity = @"Far";
+    }
 	
-	cell.textLabel.text = beacon.ibeacon.proximityUUID.UUIDString;
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@,%@ (%li)", beacon.ibeacon.major, beacon.ibeacon.minor, (long)beacon.ibeacon.rssi];
+	cell.textLabel.text = [NSString stringWithFormat:@"%@ . %@", beacon.ibeacon.major, beacon.ibeacon.minor];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%li)", proximity, (long)beacon.ibeacon.rssi];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

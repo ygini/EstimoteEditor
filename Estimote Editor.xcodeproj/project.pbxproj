@@ -86,7 +86,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C3F69F0E188988BB00D09948 /* img_estimote */ = {
+		C3F69F0E188988BB00D09948 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				C3F69F0F188988BB00D09948 /* address.png */,
@@ -99,6 +99,7 @@
 				C3F69F16188988BB00D09948 /* power.png */,
 				C3F69F17188988BB00D09948 /* rssi.png */,
 			);
+			name = Resources;
 			path = img_estimote;
 			sourceTree = "<group>";
 		};
@@ -162,13 +163,13 @@
 		E1F1248218338F2700BE137D /* Estimote Editor */ = {
 			isa = PBXGroup;
 			children = (
-				C3F69F0E188988BB00D09948 /* img_estimote */,
 				E10877AE1833DEB800ECD3B3 /* Views */,
 				E1F124AB18338F5900BE137D /* ViewControllers */,
 				E1F1248B18338F2700BE137D /* EEAppDelegate.h */,
 				E1F1248C18338F2700BE137D /* EEAppDelegate.m */,
 				E1F1248E18338F2700BE137D /* Images.xcassets */,
 				E1F1248318338F2700BE137D /* Supporting Files */,
+				C3F69F0E188988BB00D09948 /* Resources */,
 			);
 			path = "Estimote Editor";
 			sourceTree = "<group>";
