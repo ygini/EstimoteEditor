@@ -20,9 +20,13 @@
 
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) NSArray *beacons;
+
 @end
 
-@implementation EETableViewController
+@implementation EETableViewController {
+    NSArray *search;
+    NSArray *searchResults;
+}
 
 - (id)initWithCoder:(NSCoder*)aDecoder
 {
@@ -34,6 +38,7 @@
 		
 		ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initRegionWithIdentifier:ESTIMOTE_REGION_ALL];
 		[self.beaconManager startRangingBeaconsInRegion:region];
+        
 	}
     return self;
 }
@@ -66,9 +71,22 @@
     return 1;
 }
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.beacons count];
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+    } else {
+        
+        return [self.beacons count];
+        
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +95,7 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
 	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
-	
+    
     if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
@@ -90,11 +108,20 @@
     } else if (beacon.ibeacon.proximity == CLProximityFar) {
         proximity = @"Far";
     }
+    
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+    } else {
+        cell.textLabel.text = [search objectAtIndex:indexPath.row];
+    }
 	
 	cell.textLabel.text = [NSString stringWithFormat:@"%@ . %@", beacon.ibeacon.major, beacon.ibeacon.minor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%li)", proximity, (long)beacon.ibeacon.rssi];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     return cell;
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,6 +132,29 @@
 	viewController.beacon = beacon;
 	
 	[[self navigationController] pushViewController:viewController animated:YES];
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"SELF contains[cd] %@",
+                                    searchText];
+    
+    NSArray *searchBeacon = self.beacons;
+    NSLog(@"searchBeacon type=%@", NSStringFromClass([searchBeacon class]));
+    searchResults = [self.beacons filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
 }
 
 @end

@@ -12,28 +12,38 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableFooterView" contentMode="redraw" placeholder="Search" id="OHW-Go-xwM">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="bNL-tj-5vd">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="rq8-su-T8K" id="lar-Yr-WDh"/>
+                                <outlet property="delegate" destination="rq8-su-T8K" id="MYi-WH-3x2"/>
                             </connections>
                         </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="A0b-Wh-pGR">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A0b-Wh-pGR">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Estimote Editor" id="tDT-f0-D58"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="f5A-nK-NXw" id="Vdr-xK-miD"/>
+                        <outlet property="searchDisplayController" destination="orC-4G-Jcu" id="GTe-hp-x15"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZh-PB-5bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="f5A-nK-NXw">
+                <searchDisplayController id="orC-4G-Jcu">
                     <connections>
-                        <outlet property="delegate" destination="rq8-su-T8K" id="LHw-70-aK9"/>
-                        <outlet property="searchBar" destination="OHW-Go-xwM" id="cTr-5N-acC"/>
-                        <outlet property="searchContentsController" destination="rq8-su-T8K" id="uF0-Ah-2fc"/>
-                        <outlet property="searchResultsDataSource" destination="rq8-su-T8K" id="XEG-j8-PZy"/>
-                        <outlet property="searchResultsDelegate" destination="rq8-su-T8K" id="7FG-tO-YzF"/>
+                        <outlet property="delegate" destination="rq8-su-T8K" id="veZ-GI-7OO"/>
+                        <outlet property="searchBar" destination="bNL-tj-5vd" id="UMb-mK-FfV"/>
+                        <outlet property="searchContentsController" destination="rq8-su-T8K" id="z1p-Gy-0pq"/>
+                        <outlet property="searchResultsDataSource" destination="rq8-su-T8K" id="ti1-B0-d94"/>
+                        <outlet property="searchResultsDelegate" destination="rq8-su-T8K" id="WF7-fl-JJk"/>
                     </connections>
                 </searchDisplayController>
             </objects>

@@ -5,14 +5,15 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "Default@2x.png",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "subtype" : "retina4",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "subtype" : "retina4",
       "scale" : "2x"
     }
   ],

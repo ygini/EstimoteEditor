@@ -16,6 +16,7 @@
 		C3F69F1E188988BB00D09948 /* major.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F15188988BB00D09948 /* major.png */; };
 		C3F69F1F188988BB00D09948 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F16188988BB00D09948 /* power.png */; };
 		C3F69F20188988BB00D09948 /* rssi.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F17188988BB00D09948 /* rssi.png */; };
+		C3F69F24188D319800D09948 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F23188D319800D09948 /* Default@2x.png */; };
 		E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */; };
 		E10877B21833DECE00ECD3B3 /* EEProximityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877B11833DECE00ECD3B3 /* EEProximityView.m */; };
 		E17C99A118510F0100B0D0F0 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */; };
@@ -42,6 +43,7 @@
 		C3F69F15188988BB00D09948 /* major.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = major.png; sourceTree = "<group>"; };
 		C3F69F16188988BB00D09948 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
 		C3F69F17188988BB00D09948 /* rssi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rssi.png; sourceTree = "<group>"; };
+		C3F69F23188D319800D09948 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E10877AB1833D08100ECD3B3 /* EEPowerLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPowerLevelViewController.h; sourceTree = "<group>"; };
 		E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPowerLevelViewController.m; sourceTree = "<group>"; };
 		E10877B01833DECE00ECD3B3 /* EEProximityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEProximityView.h; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		E1F1248218338F2700BE137D /* Estimote Editor */ = {
 			isa = PBXGroup;
 			children = (
+				C3F69F23188D319800D09948 /* Default@2x.png */,
 				E10877AE1833DEB800ECD3B3 /* Views */,
 				E1F124AB18338F5900BE137D /* ViewControllers */,
 				E1F1248B18338F2700BE137D /* EEAppDelegate.h */,
@@ -268,6 +271,7 @@
 				C3F69F1E188988BB00D09948 /* major.png in Resources */,
 				C3F69F1A188988BB00D09948 /* battery.png in Resources */,
 				C3F69F1F188988BB00D09948 /* power.png in Resources */,
+				C3F69F24188D319800D09948 /* Default@2x.png in Resources */,
 				E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */,
 				E1F1248F18338F2700BE137D /* Images.xcassets in Resources */,
 				C3F69F1D188988BB00D09948 /* hardware.png in Resources */,
