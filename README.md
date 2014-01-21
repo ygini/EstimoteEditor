@@ -7,3 +7,5 @@ USAGE
 -----
 
 Please, be sure to correctly initialize the GIT submobule when you use this project :-)
+
+http://git-scm.com/docs/git-submodule
