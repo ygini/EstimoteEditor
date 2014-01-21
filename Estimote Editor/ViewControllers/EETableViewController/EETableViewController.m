@@ -112,7 +112,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[self tabBarController] tabBar:[self tabBarController].tabBar didSelectItem:nil];
     
 	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
 	
