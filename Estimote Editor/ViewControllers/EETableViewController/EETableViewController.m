@@ -24,8 +24,8 @@
 @end
 
 @implementation EETableViewController {
-    NSArray *search;
-    NSArray *searchResults;
+    NSArray* search;
+    NSArray* searchResults;
 }
 
 - (id)initWithCoder:(NSCoder*)aDecoder
@@ -38,7 +38,6 @@
 		
 		ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initRegionWithIdentifier:ESTIMOTE_REGION_ALL];
 		[self.beaconManager startRangingBeaconsInRegion:region];
-        
 	}
     return self;
 }
@@ -79,13 +78,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [searchResults count];
     } else {
-        
         return [self.beacons count];
-        
     }
     
 }
@@ -137,9 +133,16 @@
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
+    NSMutableArray* filtered = [[NSMutableArray alloc] init];
+    for (ESTBeacon* beacon in self.beacons) {
+        if ([[beacon.minor stringValue] rangeOfString:searchText].location != NSNotFound || [[beacon.major stringValue] rangeOfString:searchText].location) {
+            [filtered addObject:beacon];
+        }
+    }
+    searchResults = filtered;
+    return;
     
-    NSPredicate *resultPredicate = [NSPredicate
-                                    predicateWithFormat:@"SELF contains[cd] %@",
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"minor contains[cd] %@",
                                     searchText];
     
     NSArray *searchBeacon = self.beacons;
