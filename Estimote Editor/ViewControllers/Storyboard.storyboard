@@ -4,6 +4,175 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
+        <!--View Controller - About-->
+        <scene sceneID="Uiz-gx-cK8">
+            <objects>
+                <viewController id="ls7-tY-EP9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NNm-95-qdk"/>
+                        <viewControllerLayoutGuide type="bottom" id="1pu-kh-OnK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JBz-Mf-zd9">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contributors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S76-bR-nUy">
+                                <rect key="frame" x="20" y="106" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCO-UT-Tw9">
+                                <rect key="frame" x="20" y="290" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This application is a simple tool made for Estimote beacons allowing to read and edit their data." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="H7h-B2-G1g">
+                                <rect key="frame" x="20" y="20" width="280" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbi-NR-4jw" customClass="EELinkButton">
+                                <rect key="frame" x="20" y="74" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Source code is available on github"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="url" value="https://github.com/DigitasLabsParis/EstimoteManager"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valentinos Papasavvas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txt-2r-LYa">
+                                <rect key="frame" x="20" y="226" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIf-ky-EEY" customClass="EELinkButton">
+                                <rect key="frame" x="20" y="130" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Yoann Gini">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="url" value="https://github.com/ygini"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVM-FJ-CgM" customClass="EELinkButton">
+                                <rect key="frame" x="20" y="162" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="pjh68">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="url" value="https://github.com/pjh68"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eI3-Sg-54m" customClass="EELinkButton">
+                                <rect key="frame" x="20" y="194" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Michael Arthur">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="url" value="https://github.com/mikey0000"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWw-UJ-zCA" customClass="EELinkButton">
+                                <rect key="frame" x="20" y="258" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Digitas Labs Paris">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="url" value="https://github.com/DigitasLabsParis"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CP-aB-tuG">
+                                <rect key="frame" x="20" y="314" width="280" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <mutableString key="text">Copyright (c) 2013, Yoann Gini
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice, this
+  list of conditions and the following disclaimer in the documentation and/or
+  other materials provided with the distribution.
+
+* Neither the name of the {organization} nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eI3-Sg-54m" secondAttribute="trailing" constant="20" id="03b-Ex-8J2"/>
+                            <constraint firstItem="txt-2r-LYa" firstAttribute="top" secondItem="eI3-Sg-54m" secondAttribute="bottom" constant="3" id="1LU-zJ-y70"/>
+                            <constraint firstItem="S76-bR-nUy" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="6mR-Ho-tAC"/>
+                            <constraint firstItem="YCO-UT-Tw9" firstAttribute="top" secondItem="WWw-UJ-zCA" secondAttribute="bottom" constant="3" id="CSp-xv-ITE"/>
+                            <constraint firstItem="1pu-kh-OnK" firstAttribute="top" secondItem="6CP-aB-tuG" secondAttribute="bottom" constant="20" id="Cd3-1v-x2a"/>
+                            <constraint firstItem="NVM-FJ-CgM" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="EZF-ZP-mWu"/>
+                            <constraint firstAttribute="trailing" secondItem="WWw-UJ-zCA" secondAttribute="trailing" constant="20" id="GMy-5E-gku"/>
+                            <constraint firstItem="YCO-UT-Tw9" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="HUd-uk-wbi"/>
+                            <constraint firstAttribute="trailing" secondItem="NIf-ky-EEY" secondAttribute="trailing" constant="20" id="IF6-h5-eNC"/>
+                            <constraint firstItem="eI3-Sg-54m" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="Lu5-iJ-m4G"/>
+                            <constraint firstItem="WWw-UJ-zCA" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="Tfn-1q-nfr"/>
+                            <constraint firstItem="H7h-B2-G1g" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="WWa-5v-PSa"/>
+                            <constraint firstItem="H7h-B2-G1g" firstAttribute="top" secondItem="NNm-95-qdk" secondAttribute="bottom" constant="20" id="Wox-AM-79n"/>
+                            <constraint firstItem="NIf-ky-EEY" firstAttribute="top" secondItem="S76-bR-nUy" secondAttribute="bottom" constant="3" id="Y2e-j8-faH"/>
+                            <constraint firstItem="txt-2r-LYa" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="Zms-EP-Yxs"/>
+                            <constraint firstItem="NVM-FJ-CgM" firstAttribute="height" secondItem="txt-2r-LYa" secondAttribute="height" id="ake-yU-K4s"/>
+                            <constraint firstItem="S76-bR-nUy" firstAttribute="top" secondItem="dbi-NR-4jw" secondAttribute="bottom" constant="3" id="bTW-iW-i98"/>
+                            <constraint firstAttribute="trailing" secondItem="txt-2r-LYa" secondAttribute="trailing" constant="20" id="cb1-At-mDp"/>
+                            <constraint firstItem="dbi-NR-4jw" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="dBQ-Sl-PFe"/>
+                            <constraint firstItem="NVM-FJ-CgM" firstAttribute="height" secondItem="WWw-UJ-zCA" secondAttribute="height" id="dOh-Yp-HUl"/>
+                            <constraint firstAttribute="trailing" secondItem="S76-bR-nUy" secondAttribute="trailing" constant="20" id="g6I-hs-vMO"/>
+                            <constraint firstItem="6CP-aB-tuG" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="hRj-mK-lJl"/>
+                            <constraint firstAttribute="trailing" secondItem="dbi-NR-4jw" secondAttribute="trailing" constant="20" id="hS7-AM-YZG"/>
+                            <constraint firstItem="NVM-FJ-CgM" firstAttribute="top" secondItem="NIf-ky-EEY" secondAttribute="bottom" constant="3" id="jYG-cs-b9A"/>
+                            <constraint firstItem="NVM-FJ-CgM" firstAttribute="height" secondItem="NIf-ky-EEY" secondAttribute="height" id="jcP-VR-Wax"/>
+                            <constraint firstItem="NIf-ky-EEY" firstAttribute="leading" secondItem="JBz-Mf-zd9" secondAttribute="leading" constant="20" id="kUg-Ju-oPI"/>
+                            <constraint firstItem="NVM-FJ-CgM" firstAttribute="height" secondItem="eI3-Sg-54m" secondAttribute="height" id="l7W-SU-08E"/>
+                            <constraint firstAttribute="trailing" secondItem="YCO-UT-Tw9" secondAttribute="trailing" constant="20" id="lct-di-Xho"/>
+                            <constraint firstAttribute="trailing" secondItem="H7h-B2-G1g" secondAttribute="trailing" constant="20" id="paY-h1-Xvr"/>
+                            <constraint firstItem="dbi-NR-4jw" firstAttribute="top" secondItem="H7h-B2-G1g" secondAttribute="bottom" constant="3" id="sUD-ZL-CIC"/>
+                            <constraint firstAttribute="trailing" secondItem="NVM-FJ-CgM" secondAttribute="trailing" constant="20" id="tlm-Za-tdt"/>
+                            <constraint firstItem="eI3-Sg-54m" firstAttribute="top" secondItem="NVM-FJ-CgM" secondAttribute="bottom" constant="3" id="wbL-13-UkA"/>
+                            <constraint firstAttribute="trailing" secondItem="6CP-aB-tuG" secondAttribute="trailing" constant="20" id="yb8-YA-h8q"/>
+                            <constraint firstItem="WWw-UJ-zCA" firstAttribute="top" secondItem="txt-2r-LYa" secondAttribute="bottom" constant="3" id="yvG-L8-BuI"/>
+                            <constraint firstItem="6CP-aB-tuG" firstAttribute="top" secondItem="YCO-UT-Tw9" secondAttribute="bottom" constant="3" id="z7w-Se-ddL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="HMh-El-qtr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dRh-EO-0Tv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56" y="-937"/>
+        </scene>
         <!--Table View Controller - Estimote Manager-->
         <scene sceneID="rmy-hy-Yhs">
             <objects>
@@ -31,7 +200,13 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Estimote Manager" id="tDT-f0-D58"/>
+                    <navigationItem key="navigationItem" title="Estimote Manager" id="tDT-f0-D58">
+                        <barButtonItem key="leftBarButtonItem" title="About" id="fAF-ta-Y7N">
+                            <connections>
+                                <segue destination="ls7-tY-EP9" kind="push" id="yKn-YY-1xC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="orC-4G-Jcu" id="GTe-hp-x15"/>
                     </connections>
@@ -446,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4j-Vg-3Iy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87" y="-237"/>
+            <point key="canvasLocation" x="56" y="-237"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c4y-8K-9zB">

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E30ED47188EDC30007EE0A7 /* EELinkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E30ED46188EDC30007EE0A7 /* EELinkButton.m */; };
 		9E69F287188E84C7005706AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F281188E84C7005706AD /* README.md */; };
 		9E69F288188E84C7005706AD /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F282188E84C7005706AD /* release_notes.md */; };
 		9E69F28A188EA1DC005706AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E69F289188EA1DC005706AD /* libz.dylib */; };
@@ -38,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E30ED45188EDC30007EE0A7 /* EELinkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EELinkButton.h; path = EELinkButton/EELinkButton.h; sourceTree = "<group>"; };
+		9E30ED46188EDC30007EE0A7 /* EELinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EELinkButton.m; path = EELinkButton/EELinkButton.m; sourceTree = "<group>"; };
 		9E69F280188E84C7005706AD /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = Vendors/TestFlightSDK/libTestFlight.a; sourceTree = SOURCE_ROOT; };
 		9E69F281188E84C7005706AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		9E69F282188E84C7005706AD /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -99,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E30ED44188EDBFD007EE0A7 /* LinkButton */ = {
+			isa = PBXGroup;
+			children = (
+				9E30ED45188EDC30007EE0A7 /* EELinkButton.h */,
+				9E30ED46188EDC30007EE0A7 /* EELinkButton.m */,
+			);
+			name = LinkButton;
+			sourceTree = "<group>";
+		};
 		9E69F27F188E84C7005706AD /* TestFlightSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +154,7 @@
 		E10877AE1833DEB800ECD3B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E30ED44188EDBFD007EE0A7 /* LinkButton */,
 				E10877AF1833DEB800ECD3B3 /* EEProximityView */,
 			);
 			path = Views;
@@ -327,6 +340,7 @@
 				E1F124AF18338F6F00BE137D /* EETableViewController.m in Sources */,
 				E1F1248918338F2700BE137D /* main.m in Sources */,
 				E1F124C0183392C600BE137D /* EEDetailViewController.m in Sources */,
+				9E30ED47188EDC30007EE0A7 /* EELinkButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
