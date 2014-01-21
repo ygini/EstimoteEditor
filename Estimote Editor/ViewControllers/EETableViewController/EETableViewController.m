@@ -105,13 +105,6 @@
     } else if (beacon.ibeacon.proximity == CLProximityFar) {
         proximity = @"Far";
     }
-    
-    
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
-    } else {
-        cell.textLabel.text = [search objectAtIndex:indexPath.row];
-    }
 	
 	cell.textLabel.text = [NSString stringWithFormat:@"%@ . %@", beacon.ibeacon.major, beacon.ibeacon.minor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%li)", proximity, (long)beacon.ibeacon.rssi];
@@ -135,20 +128,11 @@
 {
     NSMutableArray* filtered = [[NSMutableArray alloc] init];
     for (ESTBeacon* beacon in self.beacons) {
-        if ([[beacon.minor stringValue] rangeOfString:searchText].location != NSNotFound || [[beacon.major stringValue] rangeOfString:searchText].location) {
+        if ([[beacon.ibeacon.minor stringValue] rangeOfString:searchText].location != NSNotFound || [[beacon.ibeacon.major stringValue] rangeOfString:searchText].location != NSNotFound) {
             [filtered addObject:beacon];
         }
     }
     searchResults = filtered;
-    return;
-    
-    NSPredicate *resultPredicate = [NSPredicate
-                                    predicateWithFormat:@"minor contains[cd] %@",
-                                    searchText];
-    
-    NSArray *searchBeacon = self.beacons;
-    NSLog(@"searchBeacon type=%@", NSStringFromClass([searchBeacon class]));
-    searchResults = [searchBeacon filteredArrayUsingPredicate:resultPredicate];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller

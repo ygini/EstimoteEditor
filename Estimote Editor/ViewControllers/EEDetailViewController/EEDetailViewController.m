@@ -455,18 +455,9 @@
 
 - (void)beaconConnectionDidFail:(ESTBeacon*)beacon withError:(NSError*)error
 {
-	/*UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
-													 message:[error localizedDescription]
-													delegate:self
-										   cancelButtonTitle:@"OK"
-										   otherButtonTitles:nil];*/
 	_standardAlertRequireNavigationPop = YES;
-	//[alert show];
 	[self decreaseAsyncAction];
     NSLog(@"beacon connection did fail");
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController popViewControllerAnimated:YES];
-    });
 }
 
 - (void)beaconConnectionDidSucceeded:(ESTBeacon*)beacon
@@ -477,18 +468,9 @@
 
 - (void)beaconDidDisconnect:(ESTBeacon*)beacon withError:(NSError*)error
 {
-	/*UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Estimote connection error"
-													 message:[error localizedDescription]
-													delegate:self
-										   cancelButtonTitle:@"OK"
-										   otherButtonTitles:nil];*/
 	_standardAlertRequireNavigationPop = YES;
-	//[alert show];
 	[self decreaseAsyncAction];
     NSLog(@"beacon did disconnect");
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController popViewControllerAnimated:YES];
-    });
 }
 
 #pragma mark - UIAlertViewDelegate
