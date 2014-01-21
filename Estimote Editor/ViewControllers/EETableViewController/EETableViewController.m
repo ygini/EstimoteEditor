@@ -13,7 +13,6 @@
 
 #import "EEDetailViewController.h"
 
-
 #define ESTIMOTE_REGION_ALL @"me.gini.estimote.region.all"
 
 @interface EETableViewController () <ESTBeaconManagerDelegate>

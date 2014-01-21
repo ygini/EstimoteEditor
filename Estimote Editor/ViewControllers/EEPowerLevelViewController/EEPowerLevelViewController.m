@@ -8,8 +8,6 @@
 
 #import "EEPowerLevelViewController.h"
 
-
-
 @interface EEPowerLevelViewController ()
 
 @property (nonatomic, strong) NSArray *powerLevelList;

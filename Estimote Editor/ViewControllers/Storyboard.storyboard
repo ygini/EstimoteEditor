@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Estimote Editor-->
+        <!--Table View Controller - Estimote Manager-->
         <scene sceneID="rmy-hy-Yhs">
             <objects>
-                <viewController storyboardIdentifier="list-vc" title="Estimote Editor" id="rq8-su-T8K" customClass="EETableViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="list-vc" title="Estimote Manager" id="rq8-su-T8K" customClass="EETableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="142-I2-Ryx">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Estimote Editor" id="tDT-f0-D58"/>
+                    <navigationItem key="navigationItem" title="Estimote Manager" id="tDT-f0-D58"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="orC-4G-Jcu" id="GTe-hp-x15"/>
                     </connections>
