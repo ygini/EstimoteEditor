@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Estimote Manager.xcodeproj">
+      location = "self:Estimote Editor.xcodeproj">
    </FileRef>
 </Workspace>

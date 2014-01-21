@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E30ED47188EDC30007EE0A7 /* EELinkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E30ED46188EDC30007EE0A7 /* EELinkButton.m */; };
-		9E69F287188E84C7005706AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F281188E84C7005706AD /* README.md */; };
-		9E69F288188E84C7005706AD /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F282188E84C7005706AD /* release_notes.md */; };
-		9E69F28A188EA1DC005706AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E69F289188EA1DC005706AD /* libz.dylib */; };
-		C3950F6B188EA0A2002D73DD /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E69F280188E84C7005706AD /* libTestFlight.a */; };
 		C3950F6C188EA0A8002D73DD /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */; };
 		C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0C1889773600D09948 /* Storyboard.storyboard */; };
 		C3F69F18188988BB00D09948 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0F188988BB00D09948 /* address.png */; };
@@ -41,12 +37,6 @@
 /* Begin PBXFileReference section */
 		9E30ED45188EDC30007EE0A7 /* EELinkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EELinkButton.h; path = EELinkButton/EELinkButton.h; sourceTree = "<group>"; };
 		9E30ED46188EDC30007EE0A7 /* EELinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EELinkButton.m; path = EELinkButton/EELinkButton.m; sourceTree = "<group>"; };
-		9E69F280188E84C7005706AD /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = Vendors/TestFlightSDK/libTestFlight.a; sourceTree = SOURCE_ROOT; };
-		9E69F281188E84C7005706AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		9E69F282188E84C7005706AD /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		9E69F283188E84C7005706AD /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		9E69F284188E84C7005706AD /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		9E69F285188E84C7005706AD /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		9E69F289188EA1DC005706AD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C3F69F0C1889773600D09948 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		C3F69F0F188988BB00D09948 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
@@ -63,14 +53,14 @@
 		E10877B01833DECE00ECD3B3 /* EEProximityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEProximityView.h; sourceTree = "<group>"; };
 		E10877B11833DECE00ECD3B3 /* EEProximityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEProximityView.m; sourceTree = "<group>"; };
 		E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = "Vendors/Estimote/iOS-SDK/EstimoteSDK/libEstimoteSDK.a"; sourceTree = "<group>"; };
-		E1F1247918338F2700BE137D /* Estimote Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estimote Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1F1247918338F2700BE137D /* Estimote Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estimote Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F1247C18338F2700BE137D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1F1247E18338F2700BE137D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E1F1248018338F2700BE137D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		E1F1248418338F2700BE137D /* Estimote Manager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Estimote Manager-Info.plist"; path = "Supporting Files/Estimote Manager-Info.plist"; sourceTree = "<group>"; };
+		E1F1248418338F2700BE137D /* Estimote Editor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Estimote Editor-Info.plist"; path = "Supporting Files/Estimote Editor-Info.plist"; sourceTree = "<group>"; };
 		E1F1248618338F2700BE137D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E1F1248818338F2700BE137D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
-		E1F1248A18338F2700BE137D /* Estimote Manager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Estimote Manager-Prefix.pch"; path = "Supporting Files/Estimote Manager-Prefix.pch"; sourceTree = "<group>"; };
+		E1F1248A18338F2700BE137D /* Estimote Editor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Estimote Editor-Prefix.pch"; path = "Supporting Files/Estimote Editor-Prefix.pch"; sourceTree = "<group>"; };
 		E1F1248B18338F2700BE137D /* EEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EEAppDelegate.h; sourceTree = "<group>"; };
 		E1F1248C18338F2700BE137D /* EEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EEAppDelegate.m; sourceTree = "<group>"; };
 		E1F1248E18338F2700BE137D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -88,9 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E69F28A188EA1DC005706AD /* libz.dylib in Frameworks */,
 				C3950F6C188EA0A8002D73DD /* libEstimoteSDK.a in Frameworks */,
-				C3950F6B188EA0A2002D73DD /* libTestFlight.a in Frameworks */,
 				E1F124BB1833914100BE137D /* SystemConfiguration.framework in Frameworks */,
 				E1F124B91833913300BE137D /* CoreLocation.framework in Frameworks */,
 				E1F1247F18338F2700BE137D /* CoreGraphics.framework in Frameworks */,
@@ -109,20 +97,6 @@
 				9E30ED46188EDC30007EE0A7 /* EELinkButton.m */,
 			);
 			name = LinkButton;
-			sourceTree = "<group>";
-		};
-		9E69F27F188E84C7005706AD /* TestFlightSDK */ = {
-			isa = PBXGroup;
-			children = (
-				9E69F280188E84C7005706AD /* libTestFlight.a */,
-				9E69F281188E84C7005706AD /* README.md */,
-				9E69F282188E84C7005706AD /* release_notes.md */,
-				9E69F283188E84C7005706AD /* TestFlight+AsyncLogging.h */,
-				9E69F284188E84C7005706AD /* TestFlight+ManualSessions.h */,
-				9E69F285188E84C7005706AD /* TestFlight.h */,
-			);
-			name = TestFlightSDK;
-			path = Vendors/TestFlightSDK;
 			sourceTree = "<group>";
 		};
 		C3F69F0E188988BB00D09948 /* Resources */ = {
@@ -172,17 +146,16 @@
 		E1F1247018338F2700BE137D = {
 			isa = PBXGroup;
 			children = (
-				E1F1248218338F2700BE137D /* Estimote Manager */,
+				E1F1248218338F2700BE137D /* Estimote Editor */,
 				E1F1247B18338F2700BE137D /* Frameworks */,
 				E1F1247A18338F2700BE137D /* Products */,
-				9E69F27F188E84C7005706AD /* TestFlightSDK */,
 			);
 			sourceTree = "<group>";
 		};
 		E1F1247A18338F2700BE137D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1F1247918338F2700BE137D /* Estimote Manager.app */,
+				E1F1247918338F2700BE137D /* Estimote Editor.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,7 +175,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E1F1248218338F2700BE137D /* Estimote Manager */ = {
+		E1F1248218338F2700BE137D /* Estimote Editor */ = {
 			isa = PBXGroup;
 			children = (
 				E10877AE1833DEB800ECD3B3 /* Views */,
@@ -213,17 +186,16 @@
 				E1F1248318338F2700BE137D /* Supporting Files */,
 				C3F69F0E188988BB00D09948 /* Resources */,
 			);
-			name = "Estimote Manager";
 			path = "Estimote Editor";
 			sourceTree = "<group>";
 		};
 		E1F1248318338F2700BE137D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E1F1248418338F2700BE137D /* Estimote Manager-Info.plist */,
+				E1F1248418338F2700BE137D /* Estimote Editor-Info.plist */,
 				E1F1248518338F2700BE137D /* InfoPlist.strings */,
 				E1F1248818338F2700BE137D /* main.m */,
-				E1F1248A18338F2700BE137D /* Estimote Manager-Prefix.pch */,
+				E1F1248A18338F2700BE137D /* Estimote Editor-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -260,9 +232,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E1F1247818338F2700BE137D /* Estimote Manager */ = {
+		E1F1247818338F2700BE137D /* Estimote Editor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1F124A518338F2700BE137D /* Build configuration list for PBXNativeTarget "Estimote Manager" */;
+			buildConfigurationList = E1F124A518338F2700BE137D /* Build configuration list for PBXNativeTarget "Estimote Editor" */;
 			buildPhases = (
 				E1F1247518338F2700BE137D /* Sources */,
 				E1F1247618338F2700BE137D /* Frameworks */,
@@ -272,9 +244,9 @@
 			);
 			dependencies = (
 			);
-			name = "Estimote Manager";
+			name = "Estimote Editor";
 			productName = "Estimote Editor";
-			productReference = E1F1247918338F2700BE137D /* Estimote Manager.app */;
+			productReference = E1F1247918338F2700BE137D /* Estimote Editor.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -287,7 +259,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Yoann Gini";
 			};
-			buildConfigurationList = E1F1247418338F2700BE137D /* Build configuration list for PBXProject "Estimote Manager" */;
+			buildConfigurationList = E1F1247418338F2700BE137D /* Build configuration list for PBXProject "Estimote Editor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -300,7 +272,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1F1247818338F2700BE137D /* Estimote Manager */,
+				E1F1247818338F2700BE137D /* Estimote Editor */,
 			);
 		};
 /* End PBXProject section */
@@ -314,8 +286,6 @@
 				C3F69F1E188988BB00D09948 /* major.png in Resources */,
 				C3F69F1A188988BB00D09948 /* battery.png in Resources */,
 				C3F69F1F188988BB00D09948 /* power.png in Resources */,
-				9E69F288188E84C7005706AD /* release_notes.md in Resources */,
-				9E69F287188E84C7005706AD /* README.md in Resources */,
 				C3F69F24188D319800D09948 /* Default@2x.png in Resources */,
 				E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */,
 				E1F1248F18338F2700BE137D /* Images.xcassets in Resources */,
@@ -437,20 +407,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Estimote Editor/Supporting Files/Estimote Manager-Prefix.pch";
+				GCC_PREFIX_HEADER = "Estimote Editor/Supporting Files/Estimote Editor-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
 				);
-				INFOPLIST_FILE = "Estimote Editor/Supporting Files/Estimote Manager-Info.plist";
+				INFOPLIST_FILE = "Estimote Editor/Supporting Files/Estimote Editor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
 					"$(SRCROOT)/Vendors/TestFlightSDK",
 				);
-				PRODUCT_NAME = "Estimote Manager";
+				PRODUCT_NAME = "Estimote Editor";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -462,20 +432,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Estimote Editor/Supporting Files/Estimote Manager-Prefix.pch";
+				GCC_PREFIX_HEADER = "Estimote Editor/Supporting Files/Estimote Editor-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
 				);
-				INFOPLIST_FILE = "Estimote Editor/Supporting Files/Estimote Manager-Info.plist";
+				INFOPLIST_FILE = "Estimote Editor/Supporting Files/Estimote Editor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
 					"$(SRCROOT)/Vendors/TestFlightSDK",
 				);
-				PRODUCT_NAME = "Estimote Manager";
+				PRODUCT_NAME = "Estimote Editor";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -484,7 +454,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E1F1247418338F2700BE137D /* Build configuration list for PBXProject "Estimote Manager" */ = {
+		E1F1247418338F2700BE137D /* Build configuration list for PBXProject "Estimote Editor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1F124A318338F2700BE137D /* Debug */,
@@ -493,7 +463,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1F124A518338F2700BE137D /* Build configuration list for PBXNativeTarget "Estimote Manager" */ = {
+		E1F124A518338F2700BE137D /* Build configuration list for PBXNativeTarget "Estimote Editor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1F124A618338F2700BE137D /* Debug */,

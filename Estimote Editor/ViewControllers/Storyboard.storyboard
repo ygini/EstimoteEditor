@@ -41,7 +41,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Source code is available on github"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="url" value="https://github.com/DigitasLabsParis/EstimoteManager"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="url" value="https://github.com/ygini/EstimoteEditor"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valentinos Papasavvas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txt-2r-LYa">
@@ -200,7 +200,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</mutableString>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Estimote Manager" id="tDT-f0-D58">
+                    <navigationItem key="navigationItem" title="Estimote Editor" id="tDT-f0-D58">
                         <barButtonItem key="leftBarButtonItem" title="About" id="fAF-ta-Y7N">
                             <connections>
                                 <segue destination="ls7-tY-EP9" kind="push" id="yKn-YY-1xC"/>
