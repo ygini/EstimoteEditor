@@ -240,14 +240,6 @@
 
 - (IBAction)editPowerLevelAction:(UIButton*)sender
 {
-//	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Not yet functionnal"
-//													 message:@"This function is ready to work but the API seems broken"
-//													delegate:self
-//										   cancelButtonTitle:@"OK"
-//										   otherButtonTitles:nil];
-//	
-//	[alert show];
-	
 	EEPowerLevelViewController *powerLevelEditor = [[EEPowerLevelViewController alloc] initWithStyle:UITableViewStylePlain];
 	
 	NSNumberFormatter *formatter = [NSNumberFormatter new];
