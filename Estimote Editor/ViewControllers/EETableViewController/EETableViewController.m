@@ -139,12 +139,12 @@
 {
     
     NSPredicate *resultPredicate = [NSPredicate
-                                    predicateWithFormat:@"SELF contains[cd] %@",
+                                    predicateWithFormat:@"minor contains[cd] %@",
                                     searchText];
     
     NSArray *searchBeacon = self.beacons;
     NSLog(@"searchBeacon type=%@", NSStringFromClass([searchBeacon class]));
-    searchResults = [self.beacons filteredArrayUsingPredicate:resultPredicate];
+    searchResults = [searchBeacon filteredArrayUsingPredicate:resultPredicate];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller
