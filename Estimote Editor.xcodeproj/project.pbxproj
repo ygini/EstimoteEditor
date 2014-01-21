@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E69F287188E84C7005706AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F281188E84C7005706AD /* README.md */; };
 		9E69F288188E84C7005706AD /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F282188E84C7005706AD /* release_notes.md */; };
+		9E69F28A188EA1DC005706AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E69F289188EA1DC005706AD /* libz.dylib */; };
 		C3950F6B188EA0A2002D73DD /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E69F280188E84C7005706AD /* libTestFlight.a */; };
 		C3950F6C188EA0A8002D73DD /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */; };
 		C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0C1889773600D09948 /* Storyboard.storyboard */; };
@@ -43,6 +44,7 @@
 		9E69F283188E84C7005706AD /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		9E69F284188E84C7005706AD /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		9E69F285188E84C7005706AD /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		9E69F289188EA1DC005706AD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C3F69F0C1889773600D09948 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		C3F69F0F188988BB00D09948 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
 		C3F69F10188988BB00D09948 /* advert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = advert.png; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E69F28A188EA1DC005706AD /* libz.dylib in Frameworks */,
 				C3950F6C188EA0A8002D73DD /* libEstimoteSDK.a in Frameworks */,
 				C3950F6B188EA0A2002D73DD /* libTestFlight.a in Frameworks */,
 				E1F124BB1833914100BE137D /* SystemConfiguration.framework in Frameworks */,
@@ -174,6 +177,7 @@
 		E1F1247B18338F2700BE137D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E69F289188EA1DC005706AD /* libz.dylib */,
 				E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */,
 				E1F124BA1833914100BE137D /* SystemConfiguration.framework */,
 				E1F124B81833913300BE137D /* CoreLocation.framework */,
@@ -430,8 +434,6 @@
 					"$(inherited)",
 					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
 					"$(SRCROOT)/Vendors/TestFlightSDK",
-					/Users/npetremann/Documents/GIT/ESTIMOTE_EDITOR/EstimoteEditor/Vendors/TestFlightSDK,
-					"/Users/npetremann/Documents/GIT/ESTIMOTE_EDITOR/EstimoteEditor/Vendors/Estimote/iOS-SDK/EstimoteSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -457,8 +459,6 @@
 					"$(inherited)",
 					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
 					"$(SRCROOT)/Vendors/TestFlightSDK",
-					/Users/npetremann/Documents/GIT/ESTIMOTE_EDITOR/EstimoteEditor/Vendors/TestFlightSDK,
-					"/Users/npetremann/Documents/GIT/ESTIMOTE_EDITOR/EstimoteEditor/Vendors/Estimote/iOS-SDK/EstimoteSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
