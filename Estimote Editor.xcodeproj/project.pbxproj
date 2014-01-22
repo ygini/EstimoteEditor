@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9E30ED47188EDC30007EE0A7 /* EELinkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E30ED46188EDC30007EE0A7 /* EELinkButton.m */; };
+		9E439518188FE89200A5908D /* EEBeaconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E439517188FE89200A5908D /* EEBeaconCell.m */; };
+		9E69F287188E84C7005706AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F281188E84C7005706AD /* README.md */; };
+		9E69F288188E84C7005706AD /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F282188E84C7005706AD /* release_notes.md */; };
 		C3950F6C188EA0A8002D73DD /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */; };
 		C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0C1889773600D09948 /* Storyboard.storyboard */; };
 		C3F69F18188988BB00D09948 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0F188988BB00D09948 /* address.png */; };
@@ -37,7 +40,10 @@
 /* Begin PBXFileReference section */
 		9E30ED45188EDC30007EE0A7 /* EELinkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EELinkButton.h; path = EELinkButton/EELinkButton.h; sourceTree = "<group>"; };
 		9E30ED46188EDC30007EE0A7 /* EELinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EELinkButton.m; path = EELinkButton/EELinkButton.m; sourceTree = "<group>"; };
-		9E69F289188EA1DC005706AD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9E439516188FE89200A5908D /* EEBeaconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEBeaconCell.h; path = EEBeaconCell/EEBeaconCell.h; sourceTree = "<group>"; };
+		9E439517188FE89200A5908D /* EEBeaconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEBeaconCell.m; path = EEBeaconCell/EEBeaconCell.m; sourceTree = "<group>"; };
+		9E69F281188E84C7005706AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		9E69F282188E84C7005706AD /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		C3F69F0C1889773600D09948 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		C3F69F0F188988BB00D09948 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
 		C3F69F10188988BB00D09948 /* advert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = advert.png; sourceTree = "<group>"; };
@@ -90,13 +96,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9E30ED44188EDBFD007EE0A7 /* LinkButton */ = {
+		9E30ED44188EDBFD007EE0A7 /* EELinkButton */ = {
 			isa = PBXGroup;
 			children = (
 				9E30ED45188EDC30007EE0A7 /* EELinkButton.h */,
 				9E30ED46188EDC30007EE0A7 /* EELinkButton.m */,
 			);
-			name = LinkButton;
+			name = EELinkButton;
+			sourceTree = "<group>";
+		};
+		9E439515188FE7E100A5908D /* EEBeaconCell */ = {
+			isa = PBXGroup;
+			children = (
+				9E439516188FE89200A5908D /* EEBeaconCell.h */,
+				9E439517188FE89200A5908D /* EEBeaconCell.m */,
+			);
+			name = EEBeaconCell;
 			sourceTree = "<group>";
 		};
 		C3F69F0E188988BB00D09948 /* Resources */ = {
@@ -128,7 +143,8 @@
 		E10877AE1833DEB800ECD3B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9E30ED44188EDBFD007EE0A7 /* LinkButton */,
+				9E439515188FE7E100A5908D /* EEBeaconCell */,
+				9E30ED44188EDBFD007EE0A7 /* EELinkButton */,
 				E10877AF1833DEB800ECD3B3 /* EEProximityView */,
 			);
 			path = Views;
@@ -307,6 +323,7 @@
 				E10877B21833DECE00ECD3B3 /* EEProximityView.m in Sources */,
 				E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */,
 				E1F1248D18338F2700BE137D /* EEAppDelegate.m in Sources */,
+				9E439518188FE89200A5908D /* EEBeaconCell.m in Sources */,
 				E1F124AF18338F6F00BE137D /* EETableViewController.m in Sources */,
 				E1F1248918338F2700BE137D /* main.m in Sources */,
 				E1F124C0183392C600BE137D /* EEDetailViewController.m in Sources */,

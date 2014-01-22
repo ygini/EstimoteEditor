@@ -11,6 +11,7 @@
 #import <ESTBeaconManager.h>
 #import <ESTBeacon.h>
 
+#import "EEBeaconCell.h"
 #import "EEDetailViewController.h"
 
 #define ESTIMOTE_REGION_ALL @"me.gini.estimote.region.all"
@@ -82,15 +83,15 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* CellIdentifier = @"Cell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EEBeaconCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
 	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
     
     if (!cell) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+		cell = [[EEBeaconCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
     
     NSString* proximity = @"Unknown";
@@ -101,18 +102,22 @@
     } else if (beacon.ibeacon.proximity == CLProximityFar) {
         proximity = @"Far";
     }
-	
+    
 	cell.textLabel.text = [NSString stringWithFormat:@"%@ . %@", beacon.ibeacon.major, beacon.ibeacon.minor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%li)", proximity, (long)beacon.ibeacon.rssi];
+    cell.thirdLine.text = beacon.ibeacon.proximityUUID.UUIDString;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+}
 
+- (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    return [self tableView:tableView cellForRowAtIndexPath:indexPath].frame.size.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
 	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
 	
     EEDetailViewController* viewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"detail-vc"];
