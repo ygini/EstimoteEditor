@@ -11,6 +11,7 @@
 #import <ESTBeaconManager.h>
 #import <ESTBeacon.h>
 
+#import "EEBeaconCell.h"
 #import "EEDetailViewController.h"
 
 #define ESTIMOTE_REGION_ALL @"me.gini.estimote.region.all"
@@ -82,15 +83,15 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* CellIdentifier = @"Cell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EEBeaconCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
 	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
     
     if (!cell) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+		cell = [[EEBeaconCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
     
     NSString* proximity = @"Unknown";
@@ -104,10 +105,16 @@
 	
 	cell.textLabel.text = [NSString stringWithFormat:@"%@ . %@", beacon.ibeacon.major, beacon.ibeacon.minor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%li)", proximity, (long)beacon.ibeacon.rssi];
+    cell.thirdLine.text = [NSString stringWithFormat:@"%@", beacon.ibeacon.proximityUUID.UUIDString];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+}
 
+- (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    EEBeaconCell* cell = (EEBeaconCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.thirdLineHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

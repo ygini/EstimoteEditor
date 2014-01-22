@@ -10,7 +10,6 @@
 
 @implementation EELinkButton
 
-
 - (id)initWithFrame:(CGRect)aRect
 {
     if ((self = [super initWithFrame:aRect])) {
