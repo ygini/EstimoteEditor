@@ -11,6 +11,5 @@
 @interface EEBeaconCell : UITableViewCell
 
 @property (strong, nonatomic) UILabel* thirdLine;
-@property (atomic) NSInteger thirdLineHeight;
 
 @end

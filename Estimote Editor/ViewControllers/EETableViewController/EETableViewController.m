@@ -102,10 +102,10 @@
     } else if (beacon.ibeacon.proximity == CLProximityFar) {
         proximity = @"Far";
     }
-	
+    
 	cell.textLabel.text = [NSString stringWithFormat:@"%@ . %@", beacon.ibeacon.major, beacon.ibeacon.minor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%li)", proximity, (long)beacon.ibeacon.rssi];
-    cell.thirdLine.text = [NSString stringWithFormat:@"%@", beacon.ibeacon.proximityUUID.UUIDString];
+    cell.thirdLine.text = beacon.ibeacon.proximityUUID.UUIDString;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -113,13 +113,11 @@
 
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    EEBeaconCell* cell = (EEBeaconCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.thirdLineHeight;
+    return [self tableView:tableView cellForRowAtIndexPath:indexPath].frame.size.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
 	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
 	
     EEDetailViewController* viewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"detail-vc"];
