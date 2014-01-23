@@ -36,7 +36,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *majorNumberButton;
 @property (weak, nonatomic) IBOutlet UIButton *minorNumberButton;
 @property (weak, nonatomic) IBOutlet UIButton *advertIntervalButton;
-@property (weak, nonatomic) IBOutlet UIButton *proximityUUIDButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *proximityUUIDButton;
 
 @property (weak, nonatomic) IBOutlet EEProximityView *proximityView;
 
@@ -226,9 +226,7 @@
 		[self decreaseAsyncAction];
 	}];
 	
-	
-	[self.proximityUUIDButton setTitle:self.beacon.ibeacon.proximityUUID.UUIDString
-							  forState:UIControlStateNormal];
+	[self.proximityUUIDButton setTitle:self.beacon.ibeacon.proximityUUID.UUIDString];
 	
 	[self.proximityView setProximity:self.beacon.ibeacon.proximity];
 	
@@ -315,6 +313,12 @@
 	
 	[alert show];
 }
+
+- (IBAction)editProximityUUIDAction:(id)sender
+{
+	
+}
+
 
 - (IBAction)shareProximityUUIDAction:(id)sender
 {

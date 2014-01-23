@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E30ED47188EDC30007EE0A7 /* EELinkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E30ED46188EDC30007EE0A7 /* EELinkButton.m */; };
 		9E439518188FE89200A5908D /* EEBeaconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E439517188FE89200A5908D /* EEBeaconCell.m */; };
-		9E69F287188E84C7005706AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F281188E84C7005706AD /* README.md */; };
-		9E69F288188E84C7005706AD /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E69F282188E84C7005706AD /* release_notes.md */; };
 		C3950F6C188EA0A8002D73DD /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */; };
-		C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0C1889773600D09948 /* Storyboard.storyboard */; };
 		C3F69F18188988BB00D09948 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F0F188988BB00D09948 /* address.png */; };
 		C3F69F19188988BB00D09948 /* advert.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F10188988BB00D09948 /* advert.png */; };
 		C3F69F1A188988BB00D09948 /* battery.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F11188988BB00D09948 /* battery.png */; };
@@ -24,13 +21,18 @@
 		C3F69F24188D319800D09948 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F69F23188D319800D09948 /* Default@2x.png */; };
 		E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */; };
 		E10877B21833DECE00ECD3B3 /* EEProximityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E10877B11833DECE00ECD3B3 /* EEProximityView.m */; };
+		E16871B61890FA230070A70B /* CONTRIB in Resources */ = {isa = PBXBuildFile; fileRef = E16871B51890FA230070A70B /* CONTRIB */; };
+		E1A7B86E1890264A00307813 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E1A7B86D1890264A00307813 /* LICENSE */; };
+		E1A7B870189027AE00307813 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1A7B86F189027AE00307813 /* Images.xcassets */; };
+		E1A7B8721890285000307813 /* EEDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A7B8711890285000307813 /* EEDetailViewController.xib */; };
+		E1A7B8771890302000307813 /* EECreditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A7B8751890302000307813 /* EECreditViewController.m */; };
+		E1A7B8781890302000307813 /* EECreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A7B8761890302000307813 /* EECreditViewController.xib */; };
 		E1F1247D18338F2700BE137D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247C18338F2700BE137D /* Foundation.framework */; };
 		E1F1247F18338F2700BE137D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247E18338F2700BE137D /* CoreGraphics.framework */; };
 		E1F1248118338F2700BE137D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1248018338F2700BE137D /* UIKit.framework */; };
 		E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1F1248518338F2700BE137D /* InfoPlist.strings */; };
 		E1F1248918338F2700BE137D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F1248818338F2700BE137D /* main.m */; };
 		E1F1248D18338F2700BE137D /* EEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F1248C18338F2700BE137D /* EEAppDelegate.m */; };
-		E1F1248F18338F2700BE137D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1F1248E18338F2700BE137D /* Images.xcassets */; };
 		E1F124AF18338F6F00BE137D /* EETableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F124AE18338F6F00BE137D /* EETableViewController.m */; };
 		E1F124B91833913300BE137D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F124B81833913300BE137D /* CoreLocation.framework */; };
 		E1F124BB1833914100BE137D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F124BA1833914100BE137D /* SystemConfiguration.framework */; };
@@ -42,9 +44,6 @@
 		9E30ED46188EDC30007EE0A7 /* EELinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EELinkButton.m; path = EELinkButton/EELinkButton.m; sourceTree = "<group>"; };
 		9E439516188FE89200A5908D /* EEBeaconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEBeaconCell.h; path = EEBeaconCell/EEBeaconCell.h; sourceTree = "<group>"; };
 		9E439517188FE89200A5908D /* EEBeaconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEBeaconCell.m; path = EEBeaconCell/EEBeaconCell.m; sourceTree = "<group>"; };
-		9E69F281188E84C7005706AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		9E69F282188E84C7005706AD /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		C3F69F0C1889773600D09948 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		C3F69F0F188988BB00D09948 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
 		C3F69F10188988BB00D09948 /* advert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = advert.png; sourceTree = "<group>"; };
 		C3F69F11188988BB00D09948 /* battery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery.png; sourceTree = "<group>"; };
@@ -58,7 +57,14 @@
 		E10877AC1833D08100ECD3B3 /* EEPowerLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPowerLevelViewController.m; sourceTree = "<group>"; };
 		E10877B01833DECE00ECD3B3 /* EEProximityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEProximityView.h; sourceTree = "<group>"; };
 		E10877B11833DECE00ECD3B3 /* EEProximityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEProximityView.m; sourceTree = "<group>"; };
+		E16871B51890FA230070A70B /* CONTRIB */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIB; sourceTree = "<group>"; };
 		E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = "Vendors/Estimote/iOS-SDK/EstimoteSDK/libEstimoteSDK.a"; sourceTree = "<group>"; };
+		E1A7B86D1890264A00307813 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E1A7B86F189027AE00307813 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E1A7B8711890285000307813 /* EEDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EEDetailViewController.xib; sourceTree = "<group>"; };
+		E1A7B8741890302000307813 /* EECreditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECreditViewController.h; sourceTree = "<group>"; };
+		E1A7B8751890302000307813 /* EECreditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EECreditViewController.m; sourceTree = "<group>"; };
+		E1A7B8761890302000307813 /* EECreditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EECreditViewController.xib; sourceTree = "<group>"; };
 		E1F1247918338F2700BE137D /* Estimote Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estimote Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F1247C18338F2700BE137D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1F1247E18338F2700BE137D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,7 +75,6 @@
 		E1F1248A18338F2700BE137D /* Estimote Editor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Estimote Editor-Prefix.pch"; path = "Supporting Files/Estimote Editor-Prefix.pch"; sourceTree = "<group>"; };
 		E1F1248B18338F2700BE137D /* EEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EEAppDelegate.h; sourceTree = "<group>"; };
 		E1F1248C18338F2700BE137D /* EEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EEAppDelegate.m; sourceTree = "<group>"; };
-		E1F1248E18338F2700BE137D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E1F1249518338F2700BE137D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E1F124AD18338F6F00BE137D /* EETableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETableViewController.h; sourceTree = "<group>"; };
 		E1F124AE18338F6F00BE137D /* EETableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETableViewController.m; sourceTree = "<group>"; };
@@ -159,9 +164,21 @@
 			path = EEProximityView;
 			sourceTree = "<group>";
 		};
+		E1A7B87318902FF100307813 /* EECreditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1A7B8741890302000307813 /* EECreditViewController.h */,
+				E1A7B8751890302000307813 /* EECreditViewController.m */,
+				E1A7B8761890302000307813 /* EECreditViewController.xib */,
+			);
+			path = EECreditViewController;
+			sourceTree = "<group>";
+		};
 		E1F1247018338F2700BE137D = {
 			isa = PBXGroup;
 			children = (
+				E16871B51890FA230070A70B /* CONTRIB */,
+				E1A7B86D1890264A00307813 /* LICENSE */,
 				E1F1248218338F2700BE137D /* Estimote Editor */,
 				E1F1247B18338F2700BE137D /* Frameworks */,
 				E1F1247A18338F2700BE137D /* Products */,
@@ -179,7 +196,6 @@
 		E1F1247B18338F2700BE137D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9E69F289188EA1DC005706AD /* libz.dylib */,
 				E17C99A018510F0100B0D0F0 /* libEstimoteSDK.a */,
 				E1F124BA1833914100BE137D /* SystemConfiguration.framework */,
 				E1F124B81833913300BE137D /* CoreLocation.framework */,
@@ -198,9 +214,9 @@
 				E1F124AB18338F5900BE137D /* ViewControllers */,
 				E1F1248B18338F2700BE137D /* EEAppDelegate.h */,
 				E1F1248C18338F2700BE137D /* EEAppDelegate.m */,
-				E1F1248E18338F2700BE137D /* Images.xcassets */,
 				E1F1248318338F2700BE137D /* Supporting Files */,
 				C3F69F0E188988BB00D09948 /* Resources */,
+				E1A7B86F189027AE00307813 /* Images.xcassets */,
 			);
 			path = "Estimote Editor";
 			sourceTree = "<group>";
@@ -219,7 +235,7 @@
 		E1F124AB18338F5900BE137D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C3F69F0C1889773600D09948 /* Storyboard.storyboard */,
+				E1A7B87318902FF100307813 /* EECreditViewController */,
 				E10877AA1833D05900ECD3B3 /* EEPowerLevelViewController */,
 				E1F124BC183392B200BE137D /* EEDetailViewController */,
 				E1F124AC18338F5900BE137D /* EETableViewController */,
@@ -241,6 +257,7 @@
 			children = (
 				E1F124BD183392C600BE137D /* EEDetailViewController.h */,
 				E1F124BE183392C600BE137D /* EEDetailViewController.m */,
+				E1A7B8711890285000307813 /* EEDetailViewController.xib */,
 			);
 			path = EEDetailViewController;
 			sourceTree = "<group>";
@@ -274,6 +291,11 @@
 				CLASSPREFIX = EE;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Yoann Gini";
+				TargetAttributes = {
+					E1F1247818338F2700BE137D = {
+						DevelopmentTeam = CRXPBZF3N4;
+					};
+				};
 			};
 			buildConfigurationList = E1F1247418338F2700BE137D /* Build configuration list for PBXProject "Estimote Editor" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -300,15 +322,18 @@
 			files = (
 				C3F69F18188988BB00D09948 /* address.png in Resources */,
 				C3F69F1E188988BB00D09948 /* major.png in Resources */,
+				E1A7B86E1890264A00307813 /* LICENSE in Resources */,
+				E1A7B870189027AE00307813 /* Images.xcassets in Resources */,
 				C3F69F1A188988BB00D09948 /* battery.png in Resources */,
 				C3F69F1F188988BB00D09948 /* power.png in Resources */,
 				C3F69F24188D319800D09948 /* Default@2x.png in Resources */,
 				E1F1248718338F2700BE137D /* InfoPlist.strings in Resources */,
-				E1F1248F18338F2700BE137D /* Images.xcassets in Resources */,
+				E16871B61890FA230070A70B /* CONTRIB in Resources */,
 				C3F69F1D188988BB00D09948 /* hardware.png in Resources */,
+				E1A7B8721890285000307813 /* EEDetailViewController.xib in Resources */,
 				C3F69F20188988BB00D09948 /* rssi.png in Resources */,
+				E1A7B8781890302000307813 /* EECreditViewController.xib in Resources */,
 				C3F69F1B188988BB00D09948 /* firm.png in Resources */,
-				C3F69F0D1889773600D09948 /* Storyboard.storyboard in Resources */,
 				C3F69F19188988BB00D09948 /* advert.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +353,7 @@
 				E1F1248918338F2700BE137D /* main.m in Sources */,
 				E1F124C0183392C600BE137D /* EEDetailViewController.m in Sources */,
 				9E30ED47188EDC30007EE0A7 /* EELinkButton.m in Sources */,
+				E1A7B8771890302000307813 /* EECreditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +449,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Estimote Editor/Supporting Files/Estimote Editor-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -435,9 +463,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
-					"$(SRCROOT)/Vendors/TestFlightSDK",
 				);
 				PRODUCT_NAME = "Estimote Editor";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -448,6 +476,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Estimote Editor/Supporting Files/Estimote Editor-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -460,9 +490,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Vendors/Estimote/iOS-SDK/EstimoteSDK/**",
-					"$(SRCROOT)/Vendors/TestFlightSDK",
 				);
 				PRODUCT_NAME = "Estimote Editor";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

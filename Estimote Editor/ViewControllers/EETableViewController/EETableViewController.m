@@ -13,13 +13,16 @@
 
 #import "EEBeaconCell.h"
 #import "EEDetailViewController.h"
+#import "EECreditViewController.h"
 
 #define ESTIMOTE_REGION_ALL @"me.gini.estimote.region.all"
 
-@interface EETableViewController () <ESTBeaconManagerDelegate>
+@interface EETableViewController () <ESTBeaconManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) NSArray *beacons;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchDisplayController *searchController;
 
 @end
 
@@ -36,8 +39,6 @@
 		self.beaconManager.delegate = self;
 		self.beaconManager.avoidUnknownStateBeacons = YES;
 		
-		ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initRegionWithIdentifier:ESTIMOTE_REGION_ALL];
-		[self.beaconManager startRangingBeaconsInRegion:region];
 	}
     return self;
 }
@@ -45,6 +46,38 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+	self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,70,320,44)];
+	self.searchBar.delegate = self;
+	
+	self.tableView.tableHeaderView = self.searchBar;
+	
+	self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+	self.searchController.searchResultsDataSource = self;
+	self.searchController.searchResultsDelegate = self;
+	self.searchController.delegate = self;
+	
+	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"About"
+																	  style:UIBarButtonItemStylePlain
+																	 target:self
+																	 action:@selector(showCredits)];
+	[self.navigationItem setLeftBarButtonItem:barButtonItem];
+	
+	ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initRegionWithIdentifier:ESTIMOTE_REGION_ALL];
+	[self.beaconManager startRangingBeaconsInRegion:region];
+}
+
+#pragma mark - API
+
+- (void)showCredits
+{
+	EECreditViewController * creditViewController = [[EECreditViewController alloc] initWithNibName:@"EECreditViewController" bundle:nil];
+	
+	[self.navigationController pushViewController:creditViewController animated:YES];
 }
 
 #pragma mark - ESTBeaconManagerDelegate
@@ -67,11 +100,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-}
-
--(void)viewDidLoad
-{
-    [super viewDidLoad];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -118,12 +146,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
+	ESTBeacon *beacon = [self.beacons objectAtIndex:indexPath.row];
 	
-    EEDetailViewController* viewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"detail-vc"];
+	EEDetailViewController *viewController = [[EEDetailViewController alloc] initWithNibName:@"EEDetailViewController" bundle:nil];
 	viewController.beacon = beacon;
 	
-	[[self navigationController] pushViewController:viewController animated:YES];
+	[self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
