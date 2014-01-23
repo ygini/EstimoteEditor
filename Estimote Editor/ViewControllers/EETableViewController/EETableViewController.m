@@ -31,9 +31,9 @@
     NSArray* searchResults;
 }
 
-- (id)initWithCoder:(NSCoder*)aDecoder
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithCoder:aDecoder];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		self.beaconManager = [[ESTBeaconManager alloc] init];
 		self.beaconManager.delegate = self;
@@ -137,7 +137,7 @@
         proximity = @"Far";
     }
     
-	cell.textLabel.text = [NSString stringWithFormat:@"%@ . %@", beacon.ibeacon.major, beacon.ibeacon.minor];
+	cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", beacon.ibeacon.major, beacon.ibeacon.minor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%li)", proximity, (long)beacon.ibeacon.rssi];
     cell.thirdLine.text = beacon.ibeacon.proximityUUID.UUIDString;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -164,7 +164,9 @@
 {
     NSMutableArray* filtered = [[NSMutableArray alloc] init];
     for (ESTBeacon* beacon in self.beacons) {
-        if ([[beacon.ibeacon.minor stringValue] rangeOfString:searchText].location != NSNotFound || [[beacon.ibeacon.major stringValue] rangeOfString:searchText].location != NSNotFound) {
+        if ([[beacon.ibeacon.minor stringValue] rangeOfString:searchText].location != NSNotFound
+			|| [[beacon.ibeacon.major stringValue] rangeOfString:searchText].location != NSNotFound
+			|| [beacon.ibeacon.proximityUUID.UUIDString rangeOfString:searchText].location != NSNotFound) {
             [filtered addObject:beacon];
         }
     }

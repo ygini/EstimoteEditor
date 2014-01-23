@@ -25,6 +25,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UILabel *macAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rssiLabel;
@@ -40,7 +41,7 @@
 
 @property (weak, nonatomic) IBOutlet EEProximityView *proximityView;
 
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *userControls;
+@property (strong, nonatomic) IBOutletCollection(NSObject) NSArray *userControls;
 
 - (void)updateUI;
 - (void)increaseAsyncAction;
@@ -66,6 +67,8 @@
 	self.activityIndicator.hidesWhenStopped = YES;
 	UIBarButtonItem* barButton = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
 	[[self navigationItem] setRightBarButtonItem:barButton];
+	
+	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.proximityView.frame.origin.y + self.proximityView.frame.size.height + 8);
 }
 
 - (void)didReceiveMemoryWarning
@@ -316,7 +319,12 @@
 
 - (IBAction)editProximityUUIDAction:(id)sender
 {
-	
+	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Not yet implemented"
+													 message:@"At this time, Estimote don't support UUID edition."
+													delegate:self
+										   cancelButtonTitle:@"OK"
+										   otherButtonTitles:nil];
+	[alert show];
 }
 
 
