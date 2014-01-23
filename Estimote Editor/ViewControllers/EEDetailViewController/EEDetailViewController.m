@@ -39,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *advertIntervalButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *proximityUUIDButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *updateFirmwareButton;
 @property (weak, nonatomic) IBOutlet EEProximityView *proximityView;
 
 @property (strong, nonatomic) IBOutletCollection(NSObject) NSArray *userControls;
@@ -119,6 +120,22 @@
 	
 	self.macAddressLabel.text = self.beacon.macAddress;
 	self.rssiLabel.text = [NSString stringWithFormat:@"%ld", (long)self.beacon.rssi];
+	
+	
+	[self increaseAsyncAction];
+	[self.beacon checkFirmwareUpdateWithCompletion:^(BOOL updateAvailable, ESTBeaconUpdateInfo *updateInfo, NSError *error) {
+		if (error) {
+			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Impossible to check firmware update availability"
+															 message:[error localizedDescription]
+															delegate:self
+												   cancelButtonTitle:@"OK"
+												   otherButtonTitles:nil];
+			
+			[alert show];
+		}
+		self.updateFirmwareButton.enabled = updateAvailable;
+		[self decreaseAsyncAction];
+	}];
 	
 	[self increaseAsyncAction];
 	[self.beacon readBeaconHardwareVersionWithCompletion:^(NSString *value, NSError *error) {

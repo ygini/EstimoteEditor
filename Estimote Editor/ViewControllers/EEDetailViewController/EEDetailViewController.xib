@@ -17,12 +17,12 @@
                 <outlet property="proximityView" destination="3yP-et-3KX" id="BpG-oN-DUd"/>
                 <outlet property="rssiLabel" destination="ewS-Fl-qSL" id="Elz-Jl-Xox"/>
                 <outlet property="scrollView" destination="sfR-xx-wCP" id="84s-te-twm"/>
+                <outlet property="updateFirmwareButton" destination="n1G-Dg-ZYu" id="5O2-UA-asa"/>
                 <outlet property="view" destination="Xbb-0y-4EX" id="zJH-r7-4Km"/>
                 <outletCollection property="userControls" destination="2Mp-6P-vKc" id="u4l-bO-3fN"/>
                 <outletCollection property="userControls" destination="GHK-m8-Yh6" id="WoP-Ux-Z2c"/>
                 <outletCollection property="userControls" destination="TC9-ua-9aH" id="V4f-qV-6qe"/>
                 <outletCollection property="userControls" destination="cMG-hD-z4j" id="SUV-sf-Td5"/>
-                <outletCollection property="userControls" destination="n1G-Dg-ZYu" id="tnh-OW-pCr"/>
                 <outletCollection property="userControls" destination="sLl-2b-D6x" id="jia-sh-pgg"/>
                 <outletCollection property="userControls" destination="S1m-c6-Z5n" id="aY2-4Y-ToV"/>
             </connections>
@@ -167,7 +167,7 @@
                                 <action selector="editAdvertIntervalAction:" destination="-1" eventType="touchUpInside" id="7vh-Ur-Ms0"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n1G-Dg-ZYu">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n1G-Dg-ZYu">
                             <rect key="frame" x="20" y="362" width="280" height="30"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
