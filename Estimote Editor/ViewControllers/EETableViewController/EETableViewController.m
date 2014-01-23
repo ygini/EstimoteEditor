@@ -116,7 +116,13 @@
     static NSString* CellIdentifier = @"Cell";
     EEBeaconCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-	ESTBeacon* beacon = [self.beacons objectAtIndex:indexPath.row];
+	ESTBeacon* beacon = nil;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        beacon = [searchResults objectAtIndex:indexPath.row];
+    } else {
+        beacon = [self.beacons objectAtIndex:indexPath.row];
+    }
     
     if (!cell) {
 		cell = [[EEBeaconCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
