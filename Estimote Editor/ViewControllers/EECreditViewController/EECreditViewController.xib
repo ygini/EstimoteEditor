@@ -50,11 +50,11 @@
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Contrib list loaded from file" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76d-bq-imT">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Contrib list loaded from file" translatesAutoresizingMaskIntoConstraints="NO" id="76d-bq-imT">
                     <rect key="frame" x="20" y="145" width="280" height="183"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <textInputTraits key="textInputTraits"/>
                     <dataDetectorType key="dataDetectorTypes" link="YES"/>
                 </textView>
             </subviews>
