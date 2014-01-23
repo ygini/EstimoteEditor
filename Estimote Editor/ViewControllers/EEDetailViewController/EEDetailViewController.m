@@ -118,7 +118,7 @@
 	self.title = self.beacon.peripheral.name;
 	
 	self.macAddressLabel.text = self.beacon.macAddress;
-	self.rssiLabel.text = [self.beacon.rssi stringValue];
+	self.rssiLabel.text = [NSString stringWithFormat:@"%ld", (long)self.beacon.rssi];
 	
 	[self increaseAsyncAction];
 	[self.beacon readBeaconHardwareVersionWithCompletion:^(NSString *value, NSError *error) {
@@ -229,9 +229,9 @@
 		[self decreaseAsyncAction];
 	}];
 	
-	[self.proximityUUIDButton setTitle:self.beacon.ibeacon.proximityUUID.UUIDString];
+	[self.proximityUUIDButton setTitle:self.beacon.proximityUUID.UUIDString];
 	
-	[self.proximityView setProximity:self.beacon.ibeacon.proximity];
+	[self.proximityView setProximity:self.beacon.proximity];
 	
 	[self.userControls setValue:@YES forKey:@"enabled"];
 	[self decreaseAsyncAction];
@@ -330,7 +330,7 @@
 
 - (IBAction)shareProximityUUIDAction:(id)sender
 {
-	UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.beacon.ibeacon.proximityUUID.UUIDString]
+	UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.beacon.proximityUUID.UUIDString]
 																						 applicationActivities:nil];
 	
 	[self presentViewController:activityViewController

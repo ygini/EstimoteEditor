@@ -86,10 +86,10 @@
 {
 	if ([ESTIMOTE_REGION_ALL isEqualToString:[region identifier]]) {
 		self.beacons = [beacons sortedArrayUsingComparator:^NSComparisonResult(ESTBeacon *obj1, ESTBeacon *obj2) {
-            if ([obj1.ibeacon.major intValue] != [obj2.ibeacon.major intValue]) {
-                return [obj1.ibeacon.major intValue] > [obj2.ibeacon.major intValue];
+            if ([obj1.major intValue] != [obj2.major intValue]) {
+                return [obj1.major intValue] > [obj2.major intValue];
             }
-            return [obj1.ibeacon.minor intValue] > [obj2.ibeacon.minor intValue];
+            return [obj1.minor intValue] > [obj2.minor intValue];
 		}];
 		[self.tableView reloadData];
 	}
@@ -129,17 +129,17 @@
 	}
     
     NSString* proximity = @"Unknown";
-	if (beacon.ibeacon.proximity == CLProximityImmediate) {
+	if (beacon.proximity == CLProximityImmediate) {
         proximity = @"Immediate";
-    } else if (beacon.ibeacon.proximity == CLProximityNear) {
+    } else if (beacon.proximity == CLProximityNear) {
         proximity = @"Near";
-    } else if (beacon.ibeacon.proximity == CLProximityFar) {
+    } else if (beacon.proximity == CLProximityFar) {
         proximity = @"Far";
     }
     
-	cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", beacon.ibeacon.major, beacon.ibeacon.minor];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%li)", proximity, (long)beacon.ibeacon.rssi];
-    cell.thirdLine.text = beacon.ibeacon.proximityUUID.UUIDString;
+	cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", beacon.major, beacon.minor];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%ld)", proximity, (long)beacon.rssi];
+    cell.thirdLine.text = beacon.proximityUUID.UUIDString;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -164,9 +164,9 @@
 {
     NSMutableArray* filtered = [[NSMutableArray alloc] init];
     for (ESTBeacon* beacon in self.beacons) {
-        if ([[beacon.ibeacon.minor stringValue] rangeOfString:searchText].location != NSNotFound
-			|| [[beacon.ibeacon.major stringValue] rangeOfString:searchText].location != NSNotFound
-			|| [beacon.ibeacon.proximityUUID.UUIDString rangeOfString:searchText].location != NSNotFound) {
+        if ([[beacon.minor stringValue] rangeOfString:searchText].location != NSNotFound
+			|| [[beacon.major stringValue] rangeOfString:searchText].location != NSNotFound
+			|| [beacon.proximityUUID.UUIDString rangeOfString:searchText].location != NSNotFound) {
             [filtered addObject:beacon];
         }
     }
