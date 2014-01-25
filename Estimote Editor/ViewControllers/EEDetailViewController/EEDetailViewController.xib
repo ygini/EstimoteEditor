@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EEDetailViewController">
             <connections>
                 <outlet property="advertIntervalButton" destination="cMG-hD-z4j" id="iOw-RU-bhA"/>
+                <outlet property="batteryLevelLabel" destination="aMS-AD-pCs" id="QeR-ku-gVD"/>
                 <outlet property="firmwareVersionLabel" destination="E2Y-97-qOO" id="eZ5-fk-Dy9"/>
                 <outlet property="hardwareVersionLabel" destination="KLz-hc-RdM" id="n8n-dT-F1f"/>
                 <outlet property="macAddressLabel" destination="MrW-QF-otL" id="45W-uN-XIL"/>
@@ -228,7 +229,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="pPF-Hp-za9"/>
-                        <barButtonItem title="Item" id="sLl-2b-D6x">
+                        <barButtonItem title="…" id="sLl-2b-D6x">
                             <connections>
                                 <action selector="editProximityUUIDAction:" destination="-1" id="sKr-Qa-qCg"/>
                             </connections>

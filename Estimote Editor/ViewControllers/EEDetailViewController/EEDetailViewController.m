@@ -70,6 +70,12 @@
 	[[self navigationItem] setRightBarButtonItem:barButton];
 	
 	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.proximityView.frame.origin.y + self.proximityView.frame.size.height + 8);
+	[self.userControls setValue:@NO forKey:@"enabled"];
+}
+
+- (void)dealloc
+{
+	NSLog(@"\\o/");
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,18 +85,19 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-	if (!_isChangingPowerLevel) {
+	if (!self.beacon.isConnected) {
 		self.beacon.delegate = self;
 		[self increaseAsyncAction];
 		[self.beacon connectToBeacon];
-		
-		[self.userControls setValue:@NO forKey:@"enabled"];
 	}
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-	if (!_isChangingPowerLevel) {
+	if (!_isChangingPowerLevel){
+#warning this piece of code should be placed in the dealloc method, \
+but ESTBeacon class have a strong reference to its delgate. So we've \
+to disconnect the beacon before the navigation view controller pop us.
 		[self.beacon disconnectBeacon];
 		self.beacon.delegate = nil;
 	}
@@ -113,15 +120,45 @@
 	OSSpinLockUnlock(&_asyncActionLock);
 }
 
+- (void)postConnectionTasks
+{
+	[self checkFirmwareUpdateAction:self];
+	[self updateUI];
+}
+
 - (void)updateUI
 {
+	[self.userControls setValue:@NO forKey:@"enabled"];
 	[self increaseAsyncAction];
 	self.title = self.beacon.peripheral.name;
 	
 	self.macAddressLabel.text = self.beacon.macAddress;
 	self.rssiLabel.text = [NSString stringWithFormat:@"%ld", (long)self.beacon.rssi];
 	
+	self.hardwareVersionLabel.text = self.beacon.hardwareVersion;
+	self.firmwareVersionLabel.text = self.beacon.firmwareVersion;
+	self.batteryLevelLabel.text = [self.beacon.batteryLevel stringValue];
+	[self.powerLevelButton setTitle:[NSString stringWithFormat:@"%li", (long)self.beacon.power.integerValue]
+						   forState:UIControlStateNormal];
+	[self.majorNumberButton setTitle:[self.beacon.major stringValue]
+							forState:UIControlStateNormal];
+	[self.minorNumberButton setTitle:[self.beacon.minor stringValue]
+							forState:UIControlStateNormal];
+	[self.advertIntervalButton setTitle:[self.beacon.advInterval stringValue]
+							   forState:UIControlStateNormal];
 	
+	[self.proximityUUIDButton setTitle:self.beacon.proximityUUID.UUIDString];
+	
+	[self.proximityView setProximity:self.beacon.proximity];
+	
+	[self decreaseAsyncAction];
+	[self.userControls setValue:@YES forKey:@"enabled"];
+}
+
+#pragma mark - Actions
+
+- (IBAction)checkFirmwareUpdateAction:(id)sender
+{
 	[self increaseAsyncAction];
 	[self.beacon checkFirmwareUpdateWithCompletion:^(BOOL updateAvailable, ESTBeaconUpdateInfo *updateInfo, NSError *error) {
 		if (error) {
@@ -136,125 +173,7 @@
 		self.updateFirmwareButton.enabled = updateAvailable;
 		[self decreaseAsyncAction];
 	}];
-	
-	[self increaseAsyncAction];
-	[self.beacon readBeaconHardwareVersionWithCompletion:^(NSString *value, NSError *error) {
-		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
-															 message:[error localizedDescription]
-															delegate:self
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-			
-			[alert show];
-		}
-		self.hardwareVersionLabel.text = value;
-		[self decreaseAsyncAction];
-	}];
-	
-	[self increaseAsyncAction];
-	[self.beacon readBeaconFirmwareVersionWithCompletion:^(NSString *value, NSError *error) {
-		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
-															 message:[error localizedDescription]
-															delegate:self
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-			
-			[alert show];
-		}
-		self.firmwareVersionLabel.text = value;
-		[self decreaseAsyncAction];
-	}];
-	
-	[self increaseAsyncAction];
-	[self.beacon readBeaconBatteryWithCompletion:^(unsigned short value, NSError *error) {
-		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
-															 message:[error localizedDescription]
-															delegate:self
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-			
-			[alert show];
-		}
-		self.batteryLevelLabel.text = [NSString stringWithFormat:@"%i", value];
-		[self decreaseAsyncAction];
-	}];
-	
-	[self increaseAsyncAction];
-	[self.beacon readBeaconPowerWithCompletion:^(ESTBeaconPower value, NSError *error) {
-		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
-															 message:[error localizedDescription]
-															delegate:self
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-			
-			[alert show];
-		}
-		[self.powerLevelButton setTitle:[NSString stringWithFormat:@"%i", value]
-							   forState:UIControlStateNormal];
-		[self decreaseAsyncAction];
-	}];
-	
-	[self increaseAsyncAction];
-	[self.beacon readBeaconMajorWithCompletion:^(unsigned short value, NSError *error) {
-		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
-															 message:[error localizedDescription]
-															delegate:self
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-			
-			[alert show];
-		}
-		[self.majorNumberButton setTitle:[NSString stringWithFormat:@"%i", value]
-								forState:UIControlStateNormal];
-		[self decreaseAsyncAction];
-	}];
-	
-	[self increaseAsyncAction];
-	[self.beacon readBeaconMinorWithCompletion:^(unsigned short value, NSError *error) {
-		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
-															 message:[error localizedDescription]
-															delegate:self
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-			
-			[alert show];
-		}
-		[self.minorNumberButton setTitle:[NSString stringWithFormat:@"%i", value]
-								forState:UIControlStateNormal];
-		[self decreaseAsyncAction];
-	}];
-	
-	[self increaseAsyncAction];
-	[self.beacon readBeaconAdvIntervalWithCompletion:^(unsigned short value, NSError *error) {
-		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Estimote read error"
-															 message:[error localizedDescription]
-															delegate:self
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-			
-			[alert show];
-		}
-		[self.advertIntervalButton setTitle:[NSString stringWithFormat:@"%i", value]
-							  forState:UIControlStateNormal];
-		[self decreaseAsyncAction];
-	}];
-	
-	[self.proximityUUIDButton setTitle:self.beacon.proximityUUID.UUIDString];
-	
-	[self.proximityView setProximity:self.beacon.proximity];
-	
-	[self.userControls setValue:@YES forKey:@"enabled"];
-	[self decreaseAsyncAction];
 }
-
-#pragma mark - Actions
 
 - (IBAction)editPowerLevelAction:(UIButton*)sender
 {
@@ -483,7 +402,7 @@
 
 - (void)beaconConnectionDidSucceeded:(ESTBeacon*)beacon
 {
-	[self updateUI];
+	[self postConnectionTasks];
 	[self decreaseAsyncAction];
 }
 
@@ -504,10 +423,12 @@
         }
 	} else if (UIAlertViewStylePlainTextInput == alertView.alertViewStyle) {
 		if ([alertView cancelButtonIndex] != buttonIndex) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-			[self performSelector:_selectorForEditingAlert withObject:[[alertView textFieldAtIndex:0] text]];
-#pragma clang diagnostic pop
+			NSString *userInput = [[alertView textFieldAtIndex:0] text];
+			NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[[self class] instanceMethodSignatureForSelector:_selectorForEditingAlert]];
+			invocation.target = self;
+			invocation.selector = _selectorForEditingAlert;
+			[invocation setArgument:&userInput atIndex:2];
+			[invocation invoke];
 		}
 	}
 }
