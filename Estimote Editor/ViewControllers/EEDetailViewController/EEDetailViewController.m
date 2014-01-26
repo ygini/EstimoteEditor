@@ -14,6 +14,7 @@
 
 #import "EEPowerLevelViewController.h"
 #import "EEProximityView.h"
+#import "EEProximityUUIDViewController.h"
 
 @interface EEDetailViewController () <ESTBeaconDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate>
 {
@@ -75,7 +76,10 @@
 
 - (void)dealloc
 {
-	NSLog(@"\\o/");
+	if (self.beacon.isConnected) {
+		[self.beacon disconnectBeacon];
+	}
+	self.beacon.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -255,12 +259,9 @@ to disconnect the beacon before the navigation view controller pop us.
 
 - (IBAction)editProximityUUIDAction:(id)sender
 {
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Not yet implemented"
-													 message:@"At this time, Estimote don't support UUID edition."
-													delegate:self
-										   cancelButtonTitle:@"OK"
-										   otherButtonTitles:nil];
-	[alert show];
+	EEProximityUUIDViewController *editor = [[EEProximityUUIDViewController alloc] initWithNibName:@"EEProximityUUIDViewController" bundle:nil];
+	editor.beacon = self.beacon;
+	[self.navigationController pushViewController:editor animated:YES];
 }
 
 
@@ -397,7 +398,7 @@ to disconnect the beacon before the navigation view controller pop us.
 {
 	_standardAlertRequireNavigationPop = YES;
 	[self decreaseAsyncAction];
-    NSLog(@"beacon connection did fail");
+    NSLog(@"beacon connection did fail:\n%@", error);
 }
 
 - (void)beaconConnectionDidSucceeded:(ESTBeacon*)beacon
@@ -410,7 +411,7 @@ to disconnect the beacon before the navigation view controller pop us.
 {
 	_standardAlertRequireNavigationPop = YES;
 	[self decreaseAsyncAction];
-    NSLog(@"beacon did disconnect");
+    NSLog(@"beacon did disconnect:\n%@", error);
 }
 
 #pragma mark - UIAlertViewDelegate

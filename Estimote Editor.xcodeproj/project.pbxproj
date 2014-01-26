@@ -26,6 +26,9 @@
 		E1A7B8721890285000307813 /* EEDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A7B8711890285000307813 /* EEDetailViewController.xib */; };
 		E1A7B8771890302000307813 /* EECreditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A7B8751890302000307813 /* EECreditViewController.m */; };
 		E1A7B8781890302000307813 /* EECreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A7B8761890302000307813 /* EECreditViewController.xib */; };
+		E1D4E6F21894111700822212 /* EEProximityUUIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4E6F01894111700822212 /* EEProximityUUIDViewController.m */; };
+		E1D4E6F31894111700822212 /* EEProximityUUIDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D4E6F11894111700822212 /* EEProximityUUIDViewController.xib */; };
+		E1D4E6F6189487D000822212 /* EEDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4E6F5189487D000822212 /* EEDataProvider.m */; };
 		E1F1247D18338F2700BE137D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247C18338F2700BE137D /* Foundation.framework */; };
 		E1F1247F18338F2700BE137D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1247E18338F2700BE137D /* CoreGraphics.framework */; };
 		E1F1248118338F2700BE137D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F1248018338F2700BE137D /* UIKit.framework */; };
@@ -63,6 +66,11 @@
 		E1A7B8741890302000307813 /* EECreditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECreditViewController.h; sourceTree = "<group>"; };
 		E1A7B8751890302000307813 /* EECreditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EECreditViewController.m; sourceTree = "<group>"; };
 		E1A7B8761890302000307813 /* EECreditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EECreditViewController.xib; sourceTree = "<group>"; };
+		E1D4E6EF1894111700822212 /* EEProximityUUIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEProximityUUIDViewController.h; sourceTree = "<group>"; };
+		E1D4E6F01894111700822212 /* EEProximityUUIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEProximityUUIDViewController.m; sourceTree = "<group>"; };
+		E1D4E6F11894111700822212 /* EEProximityUUIDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EEProximityUUIDViewController.xib; sourceTree = "<group>"; };
+		E1D4E6F4189487D000822212 /* EEDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEDataProvider.h; sourceTree = "<group>"; };
+		E1D4E6F5189487D000822212 /* EEDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEDataProvider.m; sourceTree = "<group>"; };
 		E1F1247918338F2700BE137D /* Estimote Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Estimote Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F1247C18338F2700BE137D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1F1247E18338F2700BE137D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -171,6 +179,16 @@
 			path = EECreditViewController;
 			sourceTree = "<group>";
 		};
+		E1D4E6EE189410F900822212 /* EEProximityUUIDViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1D4E6EF1894111700822212 /* EEProximityUUIDViewController.h */,
+				E1D4E6F01894111700822212 /* EEProximityUUIDViewController.m */,
+				E1D4E6F11894111700822212 /* EEProximityUUIDViewController.xib */,
+			);
+			path = EEProximityUUIDViewController;
+			sourceTree = "<group>";
+		};
 		E1F1247018338F2700BE137D = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +229,8 @@
 				E1F124AB18338F5900BE137D /* ViewControllers */,
 				E1F1248B18338F2700BE137D /* EEAppDelegate.h */,
 				E1F1248C18338F2700BE137D /* EEAppDelegate.m */,
+				E1D4E6F4189487D000822212 /* EEDataProvider.h */,
+				E1D4E6F5189487D000822212 /* EEDataProvider.m */,
 				E1F1248318338F2700BE137D /* Supporting Files */,
 				C3F69F0E188988BB00D09948 /* Resources */,
 				E16871B81890FEB30070A70B /* Images.xcassets */,
@@ -232,6 +252,7 @@
 		E1F124AB18338F5900BE137D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1D4E6EE189410F900822212 /* EEProximityUUIDViewController */,
 				E1A7B87318902FF100307813 /* EECreditViewController */,
 				E10877AA1833D05900ECD3B3 /* EEPowerLevelViewController */,
 				E1F124BC183392B200BE137D /* EEDetailViewController */,
@@ -330,6 +351,7 @@
 				E16871B91890FEB30070A70B /* Images.xcassets in Resources */,
 				C3F69F20188988BB00D09948 /* rssi.png in Resources */,
 				E1A7B8781890302000307813 /* EECreditViewController.xib in Resources */,
+				E1D4E6F31894111700822212 /* EEProximityUUIDViewController.xib in Resources */,
 				C3F69F1B188988BB00D09948 /* firm.png in Resources */,
 				C3F69F19188988BB00D09948 /* advert.png in Resources */,
 			);
@@ -359,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D4E6F6189487D000822212 /* EEDataProvider.m in Sources */,
 				E10877B21833DECE00ECD3B3 /* EEProximityView.m in Sources */,
 				E10877AD1833D08100ECD3B3 /* EEPowerLevelViewController.m in Sources */,
 				E1F1248D18338F2700BE137D /* EEAppDelegate.m in Sources */,
@@ -368,6 +391,7 @@
 				E1F124C0183392C600BE137D /* EEDetailViewController.m in Sources */,
 				9E30ED47188EDC30007EE0A7 /* EELinkButton.m in Sources */,
 				E1A7B8771890302000307813 /* EECreditViewController.m in Sources */,
+				E1D4E6F21894111700822212 /* EEProximityUUIDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

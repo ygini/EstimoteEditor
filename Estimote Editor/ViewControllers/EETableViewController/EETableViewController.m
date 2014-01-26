@@ -15,14 +15,17 @@
 #import "EEDetailViewController.h"
 #import "EECreditViewController.h"
 
-#define ESTIMOTE_REGION_ALL @"me.gini.estimote.region.all"
+#import "EEDataProvider.h"
+
+#define REGION_BASE_NAME @"me.gini.estimote.region."
 
 @interface EETableViewController () <ESTBeaconManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
-@property (nonatomic, strong) NSArray *beacons;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UISearchDisplayController *searchController;
+@property (nonatomic, strong) NSMutableDictionary *beaconsPerRegion;
+@property (nonatomic, strong) NSMutableArray *regionList;
 
 @end
 
@@ -39,8 +42,20 @@
 		self.beaconManager.delegate = self;
 		self.beaconManager.avoidUnknownStateBeacons = YES;
 		
+		self.beaconsPerRegion = [NSMutableDictionary new];
+		self.regionList = [NSMutableArray new];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(dataProviderNewRegionIdentifierAddedToHistory:)
+													 name:kEEDataProviderNewRegionIdentifierAddedToHistory
+												   object:[EEDataProvider sharedInstance]];
 	}
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,9 +81,33 @@
 																	 target:self
 																	 action:@selector(showCredits)];
 	[self.navigationItem setLeftBarButtonItem:barButtonItem];
+
+	for (NSString *UUIDString in [[EEDataProvider sharedInstance] regionIdentifierHistory]) {
+		[self startRangingRegionWithUUID:UUIDString];
+	}
 	
-	ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initRegionWithIdentifier:ESTIMOTE_REGION_ALL];
-	[self.beaconManager startRangingBeaconsInRegion:region];
+	[[[EEDataProvider sharedInstance] regionIdentifierHistory] addObject:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
+}
+
+#pragma mark - Internal
+
+- (void)dataProviderNewRegionIdentifierAddedToHistory:(NSNotification*)notification
+{
+	[self startRangingRegionWithUUID:[[notification userInfo] objectForKey:kEEDataProviderNewRegionIdentifierKey]];
+}
+
+- (void)startRangingRegionWithUUID:(NSString*)UUIDString
+{
+	NSString *regionIdentifier = [REGION_BASE_NAME stringByAppendingString:UUIDString];
+	if (![self.beaconsPerRegion objectForKey:regionIdentifier]) {
+		[self.beaconsPerRegion setObject:[NSMutableArray new] forKey:regionIdentifier];
+		[self.regionList addObject:regionIdentifier];
+		ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:UUIDString]
+													 identifier:regionIdentifier];
+		
+		[self.beaconManager startRangingBeaconsInRegion:region];
+		
+	}
 }
 
 #pragma mark - API
@@ -84,8 +123,10 @@
 
 -(void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
 {
-	if ([ESTIMOTE_REGION_ALL isEqualToString:[region identifier]]) {
-		self.beacons = [beacons sortedArrayUsingComparator:^NSComparisonResult(ESTBeacon *obj1, ESTBeacon *obj2) {
+	NSMutableArray *beaconsList = nil;
+	if ((beaconsList = [self.beaconsPerRegion objectForKey:[region identifier]])) {
+		[beaconsList setArray:beacons];
+		[beaconsList sortUsingComparator:^NSComparisonResult(ESTBeacon *obj1, ESTBeacon *obj2) {
             if ([obj1.major intValue] != [obj2.major intValue]) {
                 return [obj1.major intValue] > [obj2.major intValue];
             }
@@ -99,7 +140,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [self.beaconsPerRegion count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -107,21 +148,26 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [searchResults count];
     } else {
-        return [self.beacons count];
+        return [[self.beaconsPerRegion objectForKey:[self.regionList objectAtIndex:section]] count];
     }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	return [[self.regionList objectAtIndex:section] stringByReplacingOccurrencesOfString:REGION_BASE_NAME withString:@""];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* CellIdentifier = @"Cell";
     EEBeaconCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
 	ESTBeacon* beacon = nil;
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         beacon = [searchResults objectAtIndex:indexPath.row];
     } else {
-        beacon = [self.beacons objectAtIndex:indexPath.row];
+        beacon = [[self.beaconsPerRegion objectForKey:[self.regionList objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     }
     
     if (!cell) {
@@ -152,7 +198,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	ESTBeacon *beacon = [self.beacons objectAtIndex:indexPath.row];
+	ESTBeacon *beacon = [[self.beaconsPerRegion objectForKey:[self.regionList objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 	
 	EEDetailViewController *viewController = [[EEDetailViewController alloc] initWithNibName:@"EEDetailViewController" bundle:nil];
 	viewController.beacon = beacon;
@@ -162,15 +208,15 @@
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    NSMutableArray* filtered = [[NSMutableArray alloc] init];
-    for (ESTBeacon* beacon in self.beacons) {
-        if ([[beacon.minor stringValue] rangeOfString:searchText].location != NSNotFound
-			|| [[beacon.major stringValue] rangeOfString:searchText].location != NSNotFound
-			|| [beacon.proximityUUID.UUIDString rangeOfString:searchText].location != NSNotFound) {
-            [filtered addObject:beacon];
-        }
-    }
-    searchResults = filtered;
+//    NSMutableArray* filtered = [[NSMutableArray alloc] init];
+//    for (ESTBeacon* beacon in self.beacons) {
+//        if ([[beacon.minor stringValue] rangeOfString:searchText].location != NSNotFound
+//			|| [[beacon.major stringValue] rangeOfString:searchText].location != NSNotFound
+//			|| [beacon.proximityUUID.UUIDString rangeOfString:searchText].location != NSNotFound) {
+//            [filtered addObject:beacon];
+//        }
+//    }
+//    searchResults = filtered;
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
