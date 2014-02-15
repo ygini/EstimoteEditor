@@ -157,18 +157,17 @@
 
 - (IBAction)checkFirmwareUpdateAction:(id)sender
 {
-	return;
 	[self increaseAsyncAction];
 	[self.beacon checkFirmwareUpdateWithCompletion:^(BOOL updateAvailable, ESTBeaconUpdateInfo *updateInfo, NSError *error) {
-		if (error) {
-			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Impossible to check firmware update availability"
-															 message:[error localizedDescription]
-															delegate:self
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-			
-			[alert show];
-		}
+//		if (error) {
+//			UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Impossible to check firmware update availability"
+//															 message:[error localizedDescription]
+//															delegate:self
+//												   cancelButtonTitle:@"OK"
+//												   otherButtonTitles:nil];
+//			
+//			[alert show];
+//		}
 		self.updateFirmwareButton.enabled = updateAvailable;
 		[self decreaseAsyncAction];
 	}];
