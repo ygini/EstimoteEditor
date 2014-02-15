@@ -98,13 +98,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-	if (!_isChangingPowerLevel){
-#warning this piece of code should be placed in the dealloc method, \
-but ESTBeacon class have a strong reference to its delgate. So we've \
-to disconnect the beacon before the navigation view controller pop us.
-		[self.beacon disconnectBeacon];
-		self.beacon.delegate = nil;
-	}
+
 }
 
 - (void)increaseAsyncAction
@@ -163,6 +157,7 @@ to disconnect the beacon before the navigation view controller pop us.
 
 - (IBAction)checkFirmwareUpdateAction:(id)sender
 {
+	return;
 	[self increaseAsyncAction];
 	[self.beacon checkFirmwareUpdateWithCompletion:^(BOOL updateAvailable, ESTBeaconUpdateInfo *updateInfo, NSError *error) {
 		if (error) {

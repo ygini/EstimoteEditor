@@ -46,6 +46,7 @@
 		[regionIdentifierHistory addObject:object];
 		[[NSNotificationCenter defaultCenter] postNotificationName:kEEDataProviderNewRegionIdentifierAddedToHistory object:self userInfo:@{kEEDataProviderNewRegionIdentifierKey: object}];
 	}
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

@@ -42,7 +42,7 @@
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <attributedString key="attributedText">
                         <fragment>
-                            <string key="content">Proximity UUID is a 128 bit value conform to the RFC 4122 version 4. It must be unique to your organisation / purpose to avoid confusion with other iBeacon setup. You can copy the actual value by taping on it.</string>
+                            <string key="content">Proximity UUID is a 128 bit value conform to the RFC 4122 version 4. It must be unique to your organisation / purpose to avoid confusion with other iBeacon setup. You can copy the actual value with a double tap on it.</string>
                             <attributes>
                                 <font key="NSFont" size="14" name="HelveticaNeue"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
