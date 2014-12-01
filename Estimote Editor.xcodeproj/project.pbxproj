@@ -42,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		365C4F591A23B4FB00AD5468 /* Estimote Editor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Estimote Editor.entitlements"; sourceTree = "<group>"; };
 		9E30ED45188EDC30007EE0A7 /* EELinkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EELinkButton.h; path = EELinkButton/EELinkButton.h; sourceTree = "<group>"; };
 		9E30ED46188EDC30007EE0A7 /* EELinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EELinkButton.m; path = EELinkButton/EELinkButton.m; sourceTree = "<group>"; };
 		9E439516188FE89200A5908D /* EEBeaconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEBeaconCell.h; path = EEBeaconCell/EEBeaconCell.h; sourceTree = "<group>"; };
@@ -225,6 +226,7 @@
 		E1F1248218338F2700BE137D /* Estimote Editor */ = {
 			isa = PBXGroup;
 			children = (
+				365C4F591A23B4FB00AD5468 /* Estimote Editor.entitlements */,
 				E10877AE1833DEB800ECD3B3 /* Views */,
 				E1F124AB18338F5900BE137D /* ViewControllers */,
 				E1F1248B18338F2700BE137D /* EEAppDelegate.h */,
@@ -312,7 +314,15 @@
 				ORGANIZATIONNAME = "Yoann Gini";
 				TargetAttributes = {
 					E1F1247818338F2700BE137D = {
-						DevelopmentTeam = CRXPBZF3N4;
+						DevelopmentTeam = 8MTW2U4D7Z;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

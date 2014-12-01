@@ -17,15 +17,18 @@
 
 #import "EEDataProvider.h"
 
+#import <CoreLocation/CoreLocation.h>
+
 #define REGION_BASE_NAME @"me.gini.estimote.region."
 
-@interface EETableViewController () <ESTBeaconManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
+@interface EETableViewController () <ESTBeaconManagerDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UISearchDisplayController *searchController;
 @property (nonatomic, strong) NSMutableDictionary *beaconsPerRegion;
 @property (nonatomic, strong) NSMutableArray *regionList;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -38,6 +41,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        
 		self.beaconManager = [[ESTBeaconManager alloc] init];
 		self.beaconManager.delegate = self;
 		self.beaconManager.avoidUnknownStateBeacons = YES;
@@ -81,12 +87,17 @@
 																	 target:self
 																	 action:@selector(showCredits)];
 	[self.navigationItem setLeftBarButtonItem:barButtonItem];
+    
+    // Since iOS 8 it needs authorization in a different way
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager performSelector:@selector(requestWhenInUseAuthorization) withObject:nil];
+    }
 
 	for (NSString *UUIDString in [[EEDataProvider sharedInstance] regionIdentifierHistory]) {
 		[self startRangingRegionWithUUID:UUIDString];
 	}
 	
-	[[[EEDataProvider sharedInstance] regionIdentifierHistory] addObject:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
+	[[[EEDataProvider sharedInstance] regionIdentifierHistory] addObject:ESTIMOTE_PROXIMITY_UUID.UUIDString];
 }
 
 #pragma mark - Internal
@@ -104,7 +115,13 @@
 		[self.regionList addObject:regionIdentifier];
 		ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:UUIDString]
 													 identifier:regionIdentifier];
+        region.notifyOnEntry = YES;
+        region.notifyOnExit = YES;
+        region.notifyEntryStateOnDisplay = NO;
 		
+        [self.beaconManager startMonitoringForRegion:region];
+        
+        [self.beaconManager requestStateForRegion:region];
 		[self.beaconManager startRangingBeaconsInRegion:region];
 		
 	}
@@ -119,7 +136,18 @@
 	[self.navigationController pushViewController:creditViewController animated:YES];
 }
 
+#pragma mark - Core Location Delegate
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    [self dataProviderNewRegionIdentifierAddedToHistory:[NSNotification notificationWithName:kEEDataProviderNewRegionIdentifierAddedToHistory object:self userInfo:@{kEEDataProviderNewRegionIdentifierKey: ESTIMOTE_PROXIMITY_UUID.UUIDString}]];
+}
+
 #pragma mark - ESTBeaconManagerDelegate
+
+-(void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region {
+    NSLog(@"did enter region %@",region);
+    [self.beaconManager startRangingBeaconsInRegion:region];
+}
 
 -(void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
 {
